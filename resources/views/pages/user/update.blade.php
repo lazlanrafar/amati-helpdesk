@@ -1,19 +1,20 @@
 <!-- Modal -->
 <div
     class="modal fade"
-    id="formCreate"
+    id="formUpdate{{$item->id}}"
     tabindex="-1"
     role="dialog"
-    aria-labelledby="formCreateLabel"
+    aria-labelledby="formUpdateLabel"
     aria-hidden="true"
 >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('user.store') }}" method="POST">
+            <form action="{{ route('user.update', $item->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="modal-header">
-                    <h5 class="modal-title" id="formCreateLabel">
-                        Create User
+                    <h5 class="modal-title" id="formUpdateLabel">
+                        Update User 
                     </h5>
                     <button
                         type="button"
@@ -33,6 +34,7 @@
                             id="email-address"
                             placeholder="Enter email"
                             name="email"
+                            value="{{ $item->email }}"
                             required
                         />
                     </div>
@@ -44,6 +46,7 @@
                             id="username"
                             placeholder="Enter Username"
                             name="uid"
+                            value="{{ $item->uid }}"
                             required
                         />
                     </div>
@@ -53,9 +56,9 @@
                             type="password"
                             class="form-control"
                             id="password"
-                            placeholder="Password"
+                            placeholder="Input For Change Password"
                             name="password"
-                            required
+                            
                         />
                     </div>
                     <div class="form-group">
@@ -66,6 +69,7 @@
                             id="namalengkap"
                             placeholder="Enter Nama Lengkap"
                             name="nama"
+                            value="{{ $item->nama }}"
                             required
                         />
                     </div>
@@ -77,6 +81,7 @@
                             id="jabatan"
                             placeholder="Enter Jabatan"
                             name="jabatan"
+                            value="{{ $item->jabatan }}"
                             required
                         />
                     </div>
@@ -88,7 +93,7 @@
                             name="akses"
                             required
                         >
-                            <option selected>-- pilih jabatan --</option>
+                            <option selected value="{{ $item->akses }}">{{ $item->akses }}</option>
                             <option value="STAFF">Staff</option>
                             <option value="TEKNISI">Teknisi</option>
                             <option value="MANAGER">Manager</option>

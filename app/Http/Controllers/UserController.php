@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -13,20 +15,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $items = [];
+        $items = User::all();
+
         return view('pages.user.index', [
             "items" => $items
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -37,7 +30,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'nama' => $request['nama'],
+            'email' => $request['email'],
+            'uid' => $request['uid'],
+            'password' => Hash::make($request['password']),
+            'jabatan' => $request['jabatan'],
+            'akses' => $request['akses'],
+        ]);
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -52,17 +54,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -71,7 +62,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        if($data['password'] == ""){
+            unset($data['password']);
+        }else{
+            $data['password'] = Hash::make($data['password']);
+        }
+
+        $item = User::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('user.index');
     }
 
     /**
@@ -82,6 +82,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = User::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('user.index');
     }
 }

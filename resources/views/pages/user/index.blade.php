@@ -25,7 +25,11 @@
                     </div> -->
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"
+                        <a
+                            type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#formCreate"
                             ><i class="fa fa-plus"></i> Tambah</a
                         >
                         @include('pages.user.create')
@@ -62,13 +66,16 @@
                                             <i class="fa fa-trash"></i>
                                         </a>
                                         <a
-                                            href="{{ url('maintenance/detail/'.$item->id) }}"
-                                            class="btn btn-primary"
+                                            type="button"
+                                            class="btn btn-warning"
+                                            data-toggle="modal"
+                                            data-target="#formUpdate{{$item->id}}"
                                         >
-                                            <i class="fa fa-eye"></i>
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                @include('pages.user.update')
                                 <?php $i++ ?>
                                 @empty
                                 <tr>

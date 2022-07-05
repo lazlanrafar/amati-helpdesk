@@ -38,4 +38,6 @@ Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
 
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
 
-Route::get('/user', [UserController::class, 'index'])->name('user');
+// Route::get('/user', [UserController::class, 'index'])->name('user');
+// Route::post('/user', [UserController::class, 'store'])->name('user.store');
+Route::resource('/user', UserController::class);
