@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('idbrand');
             $table->integer('idlok');
-            $table->string('jenis');
-            $table->integer('jumlahport');
+            $table->string('jenis_ap');
+            $table->integer('jumlah_port');
             $table->string('frekuensi');
             $table->date('tgl_inventaris');
             $table->string('keterangan');

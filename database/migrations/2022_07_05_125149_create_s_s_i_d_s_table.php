@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('s_s_i_d_s', function (Blueprint $table) {
             $table->id();
             $table->integer('idlok');
-            $table->string('namassid');
-            $table->string('pwdssid');
-            $table->string('jenisssid');
+            $table->string('nama_ssid');
+            $table->string('pwd_ssid');
+            $table->string('jenis_ssid');
             $table->string('keterangan');
             $table->timestamps();
         });

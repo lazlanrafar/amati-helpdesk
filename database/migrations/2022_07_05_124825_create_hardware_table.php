@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('idbrand');
             $table->integer('idlok');
-            $table->string('jenis');
+            $table->string('jenis_hardware');
             $table->string('koneksi');
             $table->string('ipaddress');
             $table->string('sharing');

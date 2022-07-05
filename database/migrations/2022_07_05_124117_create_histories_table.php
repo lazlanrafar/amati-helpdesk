@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
             $table->string('uid');
-            $table->string('jenishistory');
+            $table->string('jenis_history');
             $table->string('idprkt');
             $table->string('kerusakan');
             $table->string('perbaikan');
