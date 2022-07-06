@@ -14,7 +14,10 @@ class LokasiController extends Controller
      */
     public function index()
     {
-        return view('pages.lokasi.index');
+        $items = Lokasi::all();
+        return view('pages.lokasi.index', [
+            "items" => $items
+        ]);
     }
 
     /**
@@ -42,17 +45,6 @@ class LokasiController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -61,7 +53,10 @@ class LokasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $item = Lokasi::find($id);
+        $item->update($data);
+        return redirect()->route('lokasi.index');
     }
 
     /**
@@ -72,6 +67,8 @@ class LokasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Lokasi::find($id);
+        $item->delete();
+        return redirect()->route('lokasi.index');
     }
 }
