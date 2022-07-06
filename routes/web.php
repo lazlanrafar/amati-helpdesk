@@ -28,8 +28,6 @@ Route::get('/aset', [AsetController::class, 'index'])->name('aset');
 
 Route::get('/ssid', [SSIDController::class, 'index'])->name('ssid');
 
-Route::get('/brand', [BrandController::class, 'index'])->name('brand');
-
 Route::get('/link', [LinkController::class, 'index'])->name('link');
 
 Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
@@ -38,4 +36,5 @@ Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
 
 
 Route::resource('/lokasi', LokasiController::class);
+Route::resource('/brand', BrandController::class);
 Route::resource('/user', UserController::class);

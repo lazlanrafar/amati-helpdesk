@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Brand;
 
 class BrandController extends Controller
 {
@@ -16,15 +17,6 @@ class BrandController extends Controller
         return view('pages.brand.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +26,9 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Brand::create($data);
+        return redirect()->route('brand.index');
     }
 
     /**
