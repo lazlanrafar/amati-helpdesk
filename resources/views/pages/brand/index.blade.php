@@ -123,7 +123,7 @@
                                     </td>
                                 </tr>
                                 <?php $i++ ?>
-                                @include('pages.lokasi.update') @empty
+                                @include('pages.brand.update') @empty
                                 <tr>
                                     <td colspan="5" class="text-center">
                                         Data Kosong
