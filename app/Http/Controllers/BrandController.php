@@ -76,6 +76,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Brand::find($id);
+        $item->delete();
+        return redirect()->route('brand.index');
     }
 }
