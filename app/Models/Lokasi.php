@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Lokasi extends Model
 {
     use HasFactory;
+
+        /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'nama_lokasi',
+        'unit',
+        'sublokasi',
+    ];
 }

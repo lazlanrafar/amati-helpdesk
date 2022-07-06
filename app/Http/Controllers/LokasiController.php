@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lokasi;
 
 class LokasiController extends Controller
 {
@@ -17,16 +18,6 @@ class LokasiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -34,7 +25,9 @@ class LokasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Lokasi::create($data);
+        return redirect()->route('lokasi.index');
     }
 
     /**

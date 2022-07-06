@@ -26,8 +26,6 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/aset', [AsetController::class, 'index'])->name('aset');
 
-Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
-
 Route::get('/ssid', [SSIDController::class, 'index'])->name('ssid');
 
 Route::get('/brand', [BrandController::class, 'index'])->name('brand');
@@ -38,6 +36,6 @@ Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
 
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
 
-// Route::get('/user', [UserController::class, 'index'])->name('user');
-// Route::post('/user', [UserController::class, 'store'])->name('user.store');
+
+Route::resource('/lokasi', LokasiController::class);
 Route::resource('/user', UserController::class);
