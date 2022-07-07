@@ -9,11 +9,11 @@
 >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('user.store') }}" method="POST">
+            <form action="{{ route('ssid.store') }}" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
-                        Create User
+                        Create SSID
                     </h5>
                     <button
                         type="button"
@@ -26,72 +26,64 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="email-address">Email address</label>
-                        <input
-                            type="email"
-                            class="form-control"
-                            id="email-address"
-                            placeholder="Enter email"
-                            name="email"
-                            required
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="nama-ssid">Nama SSID</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="username"
-                            placeholder="Enter Username"
-                            name="uid"
+                            id="nama-ssid"
+                            placeholder="Enter Nama SSID"
+                            name="nama_ssid"
                             required
                         />
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input
-                            type="password"
-                            class="form-control"
-                            id="password"
-                            placeholder="Password"
-                            name="password"
-                            required
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label for="namalengkap">Nama Lengkap</label>
+                        <label for="pw-ssid">Password SSID</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="namalengkap"
-                            placeholder="Enter Nama Lengkap"
-                            name="nama"
+                            id="pw-ssid"
+                            placeholder="Enter Password SSID"
+                            name="pwd_ssid"
                             required
                         />
                     </div>
                     <div class="form-group">
-                        <label for="jabatan">Jabatan</label>
+                        <label for="jenis-ssid">Jenis SSID</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="jabatan"
-                            placeholder="Enter Jabatan"
-                            name="jabatan"
+                            id="jenis-ssid"
+                            placeholder="Enter Jenis SSID"
+                            name="jenis_ssid"
                             required
                         />
                     </div>
                     <div class="form-group">
-                        <label for="akses-select">Akses</label>
+                        <label for="keterangan">Keterangan</label>
+                        <textarea
+                            class="form-control"
+                            name="keterangan"
+                            id="keterangan"
+                            cols="30"
+                            rows="3"
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="lokasi">Lokasi</label>
                         <select
                             class="form-control"
-                            id="akses-select"
-                            name="akses"
+                            id="lokasi"
+                            name="idlok"
                             required
                         >
-                            <option selected>-- pilih jabatan --</option>
-                            <option value="STAFF">Staff</option>
-                            <option value="TEKNISI">Teknisi</option>
-                            <option value="MANAGER">Manager</option>
+                            <option selected>-- pilih Lokasi --</option>
+                            @foreach ($list_lokasi as $lokasi)
+                            <option value="{{$lokasi->id}}">
+                                {{$lokasi->nama_lokasi}}, {{$lokasi->unit}},
+                                {{$lokasi->sublokasi}}
+                            </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -104,7 +96,7 @@
                         Close
                     </button>
                     <button type="submit" class="btn btn-primary">
-                        Save changes
+                        Simpan
                     </button>
                 </div>
             </form>

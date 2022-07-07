@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class SSID extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'idlok',
+        'nama_ssid',
+        'pwd_ssid',
+        'jenis_ssid',
+        'keterangan',
+    ];
 }

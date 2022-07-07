@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SSID;
+use App\Models\Lokasi;
 
 class SSIDController extends Controller
 {
@@ -13,17 +15,15 @@ class SSIDController extends Controller
      */
     public function index()
     {
-        return view('pages.ssid.index');
-    }
+        $items = SSID::join('lokasis', 'lokasis.id', '=', 's_s_i_d_s.idlok')
+            ->select('s_s_i_d_s.*', 'lokasis.*')
+            ->get();
+        $list_lokasi = Lokasi::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('pages.ssid.index', [
+            'items' => $items,
+            'list_lokasi' => $list_lokasi,
+        ]);
     }
 
     /**
@@ -34,7 +34,9 @@ class SSIDController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        SSID::create($data);
+        return redirect()->route('ssid.index');
     }
 
     /**
