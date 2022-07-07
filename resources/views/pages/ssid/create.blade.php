@@ -77,7 +77,9 @@
                             name="idlok"
                             required
                         >
-                            <option selected>-- pilih Lokasi --</option>
+                            <option value="" selected>
+                                -- pilih Lokasi --
+                            </option>
                             @foreach ($list_lokasi as $lokasi)
                             <option value="{{$lokasi->id}}">
                                 {{$lokasi->nama_lokasi}}, {{$lokasi->unit}},
