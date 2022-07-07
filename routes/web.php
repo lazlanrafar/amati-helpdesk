@@ -22,19 +22,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/aset', [AsetController::class, 'index'])->name('aset');
-
-Route::get('/ssid', [SSIDController::class, 'index'])->name('ssid');
-
-Route::get('/link', [LinkController::class, 'index'])->name('link');
-
-Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
-
-Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
-
-
+Route::resource('/', DashboardController::class);
+Route::resource('/aset', AsetController::class);
+Route::resource('/ssid', SSIDController::class);
+Route::resource('/link', LinkController::class);
+Route::resource('/riwayat', RiwayatController::class);
+Route::resource('/laporan', LaporanController::class);
 Route::resource('/lokasi', LokasiController::class);
 Route::resource('/brand', BrandController::class);
 Route::resource('/user', UserController::class);
