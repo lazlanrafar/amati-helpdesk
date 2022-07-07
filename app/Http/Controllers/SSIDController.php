@@ -51,17 +51,6 @@ class SSIDController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -70,7 +59,9 @@ class SSIDController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        SSID::find($id)->update($data);
+        return redirect()->route('ssid.index');
     }
 
     /**

@@ -90,7 +90,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                    @include('pages.brand.update') @empty
+                                    @include('pages.ssid.update') @empty
                                         <tr>
                                             <td colspan="7" class="text-center">
                                                 Data Kosong
