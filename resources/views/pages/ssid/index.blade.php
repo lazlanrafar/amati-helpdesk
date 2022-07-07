@@ -71,7 +71,7 @@
                                                                     data-dismiss="modal">
                                                                     Close
                                                                 </button>
-                                                                <form action="{{ route('brand.destroy', $item->id) }}"
+                                                                <form action="{{ route('ssid.destroy', $item->id) }}"
                                                                     method="POST" class="d-inline">
                                                                     @csrf
                                                                     @method('delete')

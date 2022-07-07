@@ -72,6 +72,7 @@ class SSIDController extends Controller
      */
     public function destroy($id)
     {
-        //
+        SSID::find($id)->delete();
+        return redirect()->route('ssid.index');
     }
 }
