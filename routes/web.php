@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 
-use App\Http\Controllers\AsetController;
+use App\Http\Controllers\Aset\APController;
+use App\Http\Controllers\Aset\HardwareController;
+use App\Http\Controllers\Aset\SwitchController;
+
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaporanController;
@@ -30,14 +33,18 @@ use App\Http\Controllers\UserController;
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::resource('/', DashboardController::class)->middleware('auth');;
-Route::resource('/aset', AsetController::class)->middleware('auth');;
-Route::resource('/ssid', SSIDController::class)->middleware('auth');;
-Route::resource('/link', LinkController::class)->middleware('auth');;
-Route::resource('/riwayat', RiwayatController::class)->middleware('auth');;
-Route::resource('/laporan', LaporanController::class)->middleware('auth');;
-Route::resource('/lokasi', LokasiController::class)->middleware('auth');;
-Route::resource('/brand', BrandController::class)->middleware('auth');;
-Route::resource('/user', UserController::class)->middleware('auth');;
+Route::resource('/', DashboardController::class)->middleware('auth');
+
+Route::resource('/aset/ap', APController::class)->middleware('auth');
+Route::resource('/aset/hardware', HardwareController::class)->middleware('auth');
+Route::resource('/aset/switch', SwitchController::class)->middleware('auth');
+
+Route::resource('/ssid', SSIDController::class)->middleware('auth');
+Route::resource('/link', LinkController::class)->middleware('auth');
+Route::resource('/riwayat', RiwayatController::class)->middleware('auth');
+Route::resource('/laporan', LaporanController::class)->middleware('auth');
+Route::resource('/lokasi', LokasiController::class)->middleware('auth');
+Route::resource('/brand', BrandController::class)->middleware('auth');
+Route::resource('/user', UserController::class)->middleware('auth');

@@ -1,12 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img
-            src="dist/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3"
-            style="opacity: 0.8"
-        />
+        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: 0.8" />
         <span class="brand-text font-weight-light">Helpdesk</span>
     </a>
 
@@ -14,12 +10,8 @@
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul
-                class="nav nav-pills nav-sidebar flex-column"
-                data-widget="treeview"
-                role="menu"
-                data-accordion="false"
-            >
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <li class="nav-item">
                     <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -27,10 +19,34 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/aset" class="nav-link {{ Request::is('aset') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('aset/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-archive"></i>
-                        <p>Aset</p>
+                        <p>
+                            Aset
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/aset/hardware"
+                                class="nav-link {{ Request::is('aset/hardware') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Hardware</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/aset/ap" class="nav-link {{ Request::is('aset/ap') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Access Point</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/aset/switch" class="nav-link {{ Request::is('aset/switch') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Switch</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="/lokasi" class="nav-link {{ Request::is('lokasi') ? 'active' : '' }}">
