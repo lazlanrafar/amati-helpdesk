@@ -49,33 +49,9 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/lokasi" class="nav-link {{ Request::is('lokasi') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-code-branch"></i>
-                        <p>Lokasi</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/ssid" class="nav-link {{ Request::is('ssid') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-file-signature"></i>
-                        <p>SSID</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/brand" class="nav-link {{ Request::is('brand') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-building"></i>
                         <p>Brand</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/link" class="nav-link {{ Request::is('link') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-link"></i>
-                        <p>Link</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/riwayat" class="nav-link {{ Request::is('riwayat') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-clock"></i>
-                        <p>Riwayat</p>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -13,7 +13,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="user-image
                 img-circle elevation-2 alt="User
                     Image">
-                <span class="hidden-xs">Alexander Pierce</span>
+                <span class="hidden-xs">{{ request()->session()->get('user')['nama'] }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a href="/user" class="dropdown-item">
