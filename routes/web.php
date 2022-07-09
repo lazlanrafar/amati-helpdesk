@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Auth\LoginController;
+
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
@@ -10,6 +13,7 @@ use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\SSIDController;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +27,17 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::resource('/', DashboardController::class);
-Route::resource('/aset', AsetController::class);
-Route::resource('/ssid', SSIDController::class);
-Route::resource('/link', LinkController::class);
-Route::resource('/riwayat', RiwayatController::class);
-Route::resource('/laporan', LaporanController::class);
-Route::resource('/lokasi', LokasiController::class);
-Route::resource('/brand', BrandController::class);
-Route::resource('/user', UserController::class);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::resource('/', DashboardController::class)->middleware('auth');;
+Route::resource('/aset', AsetController::class)->middleware('auth');;
+Route::resource('/ssid', SSIDController::class)->middleware('auth');;
+Route::resource('/link', LinkController::class)->middleware('auth');;
+Route::resource('/riwayat', RiwayatController::class)->middleware('auth');;
+Route::resource('/laporan', LaporanController::class)->middleware('auth');;
+Route::resource('/lokasi', LokasiController::class)->middleware('auth');;
+Route::resource('/brand', BrandController::class)->middleware('auth');;
+Route::resource('/user', UserController::class)->middleware('auth');;
