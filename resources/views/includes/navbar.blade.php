@@ -16,9 +16,11 @@
                 <span class="hidden-xs">{{ request()->session()->get('user')['nama'] }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="/user" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> User List
-                </a>
+                @if (request()->session()->get('user')['akses'] == 'STAFF')
+                    <a href="/user" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> User List
+                    </a>
+                @endif
                 <div class="dropdown-divider"></div>
                 <form action="/logout" method="POST">
                     @csrf

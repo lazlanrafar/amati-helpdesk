@@ -27,13 +27,13 @@ class LoginController extends Controller
             $user = User::where('email', $request->email)->first();
             $request->session()->put('user', $user);
         
-            if($user->akses == 'STAFF'){
-                return redirect('/staff');
-            }else if($user->akses == 'TEKNISI'){
-                return redirect('/teknisi');
-            }else{
-                return redirect('/manager');
-            }
+            // if($user->akses == 'STAFF'){
+            //     return redirect('/staff');
+            // }else if($user->akses == 'TEKNISI'){
+            //     return redirect('/teknisi');
+            // }else{
+            //     return redirect('/manager');
+            // }
         }
 
         return back()->with('loginError', 'Email atau Password salah');
