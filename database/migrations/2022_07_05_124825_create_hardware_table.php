@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('jenis_hardware');
             $table->string('koneksi');
             $table->string('ipaddress');
+            $table->string('computer_name');
             $table->string('sharing');
             $table->date('tgl_inventaris');
             $table->string('keterangan');

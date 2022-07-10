@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Hardware extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'idlok',
+        'jenis_hardware',
+        'koneksi',
+        'ipaddress',
+        'computer_name',
+        'sharing',
+        'tgl_inventaris',
+        'keterangan',
+    ];
 }
