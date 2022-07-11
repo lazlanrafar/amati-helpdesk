@@ -27,6 +27,7 @@
                                         <th>Jenis</th>
                                         <th>Koneksi</th>
                                         <th>IP Address</th>
+                                        <th>Komputer Name</th>
                                         <th>Sharing</th>
                                         <th>Tgl Inventaris</th>
                                         <th>Lokasi</th>

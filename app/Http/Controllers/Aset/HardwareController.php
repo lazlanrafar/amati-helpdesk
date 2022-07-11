@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Aset;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Hardware;
+use App\Models\Brand;
+use App\Models\Lokasi;
 
 class HardwareController extends Controller
 {
@@ -33,6 +35,11 @@ class HardwareController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        if($data['ipaddress'] == '' && $data['computer_name'] == ''){
+            return redirect()->back()->with('error', 'IP Address dan Computer Name harus diisi');
+        }
+
         Hardware::create($data);
         return redirect()->route('pages.aset.hardware.index');
     }
