@@ -15,8 +15,11 @@ class BrandController extends Controller
     public function index()
     {
         $items = Brand::all();
+        $list_jenis = ['Jaringan', 'Hardware'];
+
         return view('pages.brand.index', [
             'items' => $items,
+            'list_jenis' => $list_jenis
         ]);
     }
 

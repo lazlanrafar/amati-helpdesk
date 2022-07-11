@@ -16,9 +16,10 @@ class HardwareController extends Controller
     public function index()
     {
         $items = Hardware::all();
-        $list_jenis = 
+        $list_jenis = ['Printer', 'Scanner', 'Mesin Fotocopy'];
         return view('pages.aset.hardware.index', [
             'items' => $items,
+            'list_jenis' => $list_jenis
         ]);
     }
 
