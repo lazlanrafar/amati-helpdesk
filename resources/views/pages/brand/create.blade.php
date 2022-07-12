@@ -27,9 +27,9 @@
                         <label for="jenis_brand">Jenis Brand</label>
                         <select name="jenis_brand" class="form-control" id="jenis_brand" required>
                             <option selected value="">-- pilih jenis Brand --</option>
-                            @foreach ($list_jenis as $item)
+                            {{-- @foreach ($list_nama_lokasi as $item)
                                 <option value="{{ $item }}">{{ $item }}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
                     </div>
 
