@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     use HasFactory;
+
+        /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'idswitch',
+        'uid',
+        'port',
+        'status',
+        'arah',
+        'keterangan',
+    ];
 }

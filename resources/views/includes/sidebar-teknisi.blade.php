@@ -49,15 +49,21 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/lokasi" class="nav-link {{ Request::is('lokasi') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-code-branch"></i>
-                        <p>Lokasi</p>
+                    <a href="/link" class="nav-link {{ Request::is('link') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-link"></i>
+                        <p>Link</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/ssid" class="nav-link {{ Request::is('ssid') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file-signature"></i>
                         <p>SSID</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/lokasi" class="nav-link {{ Request::is('lokasi') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-code-branch"></i>
+                        <p>Lokasi</p>
                     </a>
                 </li>
                 <li class="nav-item">
