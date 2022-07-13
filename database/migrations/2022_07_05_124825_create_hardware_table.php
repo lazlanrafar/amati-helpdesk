@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('idlok');
             $table->string('jenis_hardware');
             $table->string('koneksi');
-            $table->string('ipaddress');
-            $table->string('computer_name');
+            $table->string('ipaddress')->nullable();
+            $table->string('computer_name')->nullable();
             $table->string('sharing');
             $table->date('tgl_inventaris');
             $table->string('keterangan');

@@ -16,6 +16,7 @@ class Hardware extends Model
      */
     protected $fillable = [
         'idlok',
+        'idbrand',
         'jenis_hardware',
         'koneksi',
         'ipaddress',

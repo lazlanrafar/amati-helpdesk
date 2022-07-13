@@ -18,9 +18,14 @@ class HardwareController extends Controller
     public function index()
     {
         $items = Hardware::all();
+        $list_brand = Brand::where('jenis_brand', 'Hardware')->get();
+        $list_lokasi = Lokasi::all();
         $list_jenis = ['Printer', 'Scanner', 'Mesin Fotocopy'];
+
         return view('pages.aset.hardware.index', [
             'items' => $items,
+            'list_brand' => $list_brand,
+            'list_lokasi' => $list_lokasi,
             'list_jenis' => $list_jenis
         ]);
     }
@@ -37,11 +42,11 @@ class HardwareController extends Controller
         $data = $request->all();
 
         if($data['ipaddress'] == '' && $data['computer_name'] == ''){
-            return redirect()->back()->with('error', 'IP Address dan Computer Name harus diisi');
+            return redirect()->back()->with('error', 'IP Address atau Computer Name harus diisi');
         }
 
         Hardware::create($data);
-        return redirect()->route('pages.aset.hardware.index');
+        return redirect()->route('hardware.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

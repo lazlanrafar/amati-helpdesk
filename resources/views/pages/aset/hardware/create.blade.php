@@ -14,8 +14,33 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="lokasi">Lokasi</label>
+                        <select class="form-control" id="lokasi" name="idlok" required>
+                            <option value="" selected>-- pilih lokasi --</option>
+                            @foreach ($list_lokasi as $item)
+                                <option value="{{ $item->id }}">
+                                    {{ $item->nama_lokasi }},
+                                    {{ $item->unit }},
+                                    {{ $item->sublokasi }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <select class="form-control" id="brand" name="idbrand" required>
+                            <option value="" selected>-- pilih brand --</option>
+                            @foreach ($list_brand as $item)
+                                <option value="{{ $item->id }}">
+                                    {{ $item->nama_brand }}
+                                    {{ $item->tipe_brand }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="jenis-hardware">Jenis Hardware</label>
-                        <select class="form-control" id="jenis-hardware" name="akses" required>
+                        <select class="form-control" id="jenis-hardware" name="jenis_hardware" required>
                             <option value="" selected>-- pilih jenis --</option>
                             @foreach ($list_jenis as $jenis)
                                 <option value="{{ $jenis }}">
