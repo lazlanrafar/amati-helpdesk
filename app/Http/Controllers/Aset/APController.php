@@ -71,9 +71,9 @@ class APController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $item = Hardware::find($id);
+        $item = AccessPoint::find($id);
         $item->update($data);
-        return redirect()->route('hardware.index')->with('success', 'Data berhasil diubah');
+        return redirect()->route('ap.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -84,8 +84,8 @@ class APController extends Controller
      */
     public function destroy($id)
     {
-        $item = Hardware::find($id);
+        $item = AccessPoint::find($id);
         $item->delete();
-        return redirect()->route('hardware.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('ap.index')->with('success', 'Data berhasil dihapus');
     }
 }
