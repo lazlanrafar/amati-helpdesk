@@ -45,8 +45,10 @@
 <script src="{{ url('/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ url('/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ url('/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-<!-- Select2 -->
-<script src="{{ url('/plugins/select2/js/select2.full.min.js') }}"></script>
+<!-- SweetAlert2 -->
+<script src="{{ url('/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+<!-- Toastr -->
+<script src="{{ url('/plugins/toastr/toastr.min.js') }}"></script>
 <script>
     $(function() {
         // $("#example1").DataTable({
@@ -62,12 +64,5 @@
             "autoWidth": false,
             "responsive": true,
         });
-        //Initialize Select2 Elements
-        $('.select2').select2()
-
-        //Initialize Select2 Elements
-        $('.select2bs4').select2({
-            theme: 'bootstrap4'
-        })
     });
 </script>
