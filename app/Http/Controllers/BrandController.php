@@ -34,7 +34,7 @@ class BrandController extends Controller
     {
         $data = $request->all();
         Brand::create($data);
-        return redirect()->route('brand.index');
+        return redirect()->route('brand.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
