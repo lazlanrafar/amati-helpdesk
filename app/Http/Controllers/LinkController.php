@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Link;
+use App\Models\SwitchHub;
 
 class LinkController extends Controller
 {
@@ -13,7 +15,15 @@ class LinkController extends Controller
      */
     public function index()
     {
-        return view('pages.link.index');
+        $items = Link::all();
+        $list_switch = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')
+        ->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand')
+        ->get();
+        
+        return view('pages.link.index', [
+            "items" => $items,
+            "list_switch" => $list_switch
+        ]);
     }
 
     /**
