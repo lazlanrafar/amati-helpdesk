@@ -68,8 +68,8 @@
                                             <td>{{ $item->koneksi }}</td>
                                             <td>{{ $item->ipaddress }}</td>
                                             <td>
-                                                @if ($item->komputer_name)
-                                                    {{ $item->komputer_name }}
+                                                @if ($item->computer_name)
+                                                    {{ $item->computer_name }}
                                                 @else
                                                     -
                                                 @endif
@@ -116,6 +116,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
+                                        @include('pages.aset.hardware.update')
                                     @empty
                                         <tr>
                                             <td colspan="10" class="text-center">

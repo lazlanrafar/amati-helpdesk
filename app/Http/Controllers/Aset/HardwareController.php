@@ -75,7 +75,7 @@ class HardwareController extends Controller
         $data = $request->all();
         $item = Hardware::find($id);
         $item->update($data);
-        return redirect()->route('Hardware.index');
+        return redirect()->route('hardware.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
