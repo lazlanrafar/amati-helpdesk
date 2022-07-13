@@ -60,7 +60,7 @@ class BrandController extends Controller
         $data = $request->all();
         $item = Brand::find($id);
         $item->update($data);
-        return redirect()->route('brand.index');
+        return redirect()->route('brand.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -73,6 +73,6 @@ class BrandController extends Controller
     {
         $item = Brand::find($id);
         $item->delete();
-        return redirect()->route('brand.index');
+        return redirect()->route('brand.index')->with('success', 'Data berhasil dihapus');
     }
 }

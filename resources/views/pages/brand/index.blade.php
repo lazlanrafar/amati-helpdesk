@@ -51,7 +51,7 @@
                                             <td>{{ $item->jenis_brand }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('lokasi.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('brand.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
