@@ -17,23 +17,42 @@
                         <label for="lokasi">Nama Lokasi</label>
                         <select name="nama_lokasi" id="lokasi" onchange="handleUnit()" class="form-control" required>
                             <option value="">-- Pilih Lokasi --</option>
-                            @foreach ($list_nama as $nama)
+                            @foreach ($list_nama_lokasi as $nama)
                                 <option value="{{ $nama }}">{{ $nama }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <script>
-                        function handleUnit(params) {
-                            console.log(params);
-                            console.log(document.getElementById('lokasi').value);
-                            {{ $unitActive = "document.getElementById('lokasi').value" }}
-                        }
-                    </script>
                     <div class="form-group">
-                        <label for="unit">Unit</label>
-                        <input type="text" class="form-control" id="unit" placeholder="Enter Unit"
-                            value="{{ $unitActive }}" name="unit" required />
+                        <label>Unit</label>
+                        <select class="form-control" name="unit" required>
+                            <option selected value="">-- Pilih Unit --</option>
+                            <option disabled style="font-weight: 700">KANTOR KORPORAT</option>
+                            @foreach ($list_unit_kantor_korporat as $unit)
+                                <option value="{{ $unit }}">{{ $unit }}</option>
+                            @endforeach
+                            <option disabled>==========================</option>
+                            <option disabled style="font-weight: 700">UNIT BISNIS SERVICE</option>
+                            @foreach ($list_unit_bisnis_service as $unit)
+                                <option value="{{ $unit }}">{{ $unit }}</option>
+                            @endforeach
+                            <option disabled>==========================</option>
+                            <option disabled style="font-weight: 700">UNIT BISNIS INSFRASTRUKTUR</option>
+                            @foreach ($list_unit_bisnis_infrastruktur as $unit)
+                                <option value="{{ $unit }}">{{ $unit }}</option>
+                            @endforeach
+                            <option disabled>==========================</option>
+                            <option disabled style="font-weight: 700">UNIT BISNIS GTRANS</option>
+                            @foreach ($list_unit_bisnis_gtrans as $unit)
+                                <option value="{{ $unit }}">{{ $unit }}</option>
+                            @endforeach
+                            <option disabled>==========================</option>
+                            <option disabled style="font-weight: 700">UNIT BISNIS BES</option>
+                            @foreach ($list_unit_bisnis_bes as $unit)
+                                <option value="{{ $unit }}">{{ $unit }}</option>
+                            @endforeach
+                        </select>
                     </div>
+
                     <div class="form-group">
                         <label for="sublokasi">Sublokasi</label>
                         <input type="text" class="form-control" id="sublokasi" placeholder="Enter sublokasi"

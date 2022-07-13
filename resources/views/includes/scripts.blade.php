@@ -4,7 +4,7 @@
 <script src="{{ url('/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ url('/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -45,20 +45,29 @@
 <script src="{{ url('/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ url('/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ url('/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ url('/plugins/select2/js/select2.full.min.js') }}"></script>
 <script>
-  $(function () {
-    // $("#example1").DataTable({
-    //   "responsive": true, "lengthChange": false, "autoWidth": false,
-    //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#defaultTable').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+    $(function() {
+        // $("#example1").DataTable({
+        //   "responsive": true, "lengthChange": false, "autoWidth": false,
+        //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#defaultTable').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
     });
-  });
 </script>
