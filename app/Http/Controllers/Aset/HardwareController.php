@@ -17,7 +17,10 @@ class HardwareController extends Controller
      */
     public function index()
     {
-        $items = Hardware::all();
+        $items = Hardware::join('brands', 'brands.id', '=', 'hardware.idbrand')
+            ->join('lokasis', 'lokasis.id', '=', 'hardware.idlok')
+            ->select('hardware.*', 'brands.*', 'lokasis.*')
+            ->get();
         $list_brand = Brand::where('jenis_brand', 'Hardware')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Printer', 'Scanner', 'Mesin Fotocopy'];
