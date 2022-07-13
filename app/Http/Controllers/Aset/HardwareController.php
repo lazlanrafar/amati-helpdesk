@@ -19,7 +19,7 @@ class HardwareController extends Controller
     {
         $items = Hardware::join('brands', 'brands.id', '=', 'hardware.idbrand')
             ->join('lokasis', 'lokasis.id', '=', 'hardware.idlok')
-            ->select('hardware.*', 'brands.*', 'lokasis.*')
+            ->select('hardware.*', 'brands.nama_brand', 'brands.tipe_brand', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
             ->get();
         $list_brand = Brand::where('jenis_brand', 'Hardware')->get();
         $list_lokasi = Lokasi::all();
@@ -88,6 +88,6 @@ class HardwareController extends Controller
     {
         $item = Hardware::find($id);
         $item->delete();
-        return redirect()->route('Hardware.index');
+        return redirect()->route('hardware.index')->with('success', 'Data berhasil dihapus');
     }
 }
