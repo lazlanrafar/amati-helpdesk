@@ -24,14 +24,14 @@ class SwitchController extends Controller
         $list_brand = Brand::where('jenis_brand', 'Jaringan')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Management', 'Non Management'];
-        $list_frekuensi = ['2.4 GHz', '5 GHz', '2.4 GHz dan 5 GHz'];
+        $list_jenis_port = ['Fast Ethernet', 'Gigabit Ethernet'];
 
         return view('pages.aset.switch.index', [
             'items' => $items,
             'list_brand' => $list_brand,
             'list_lokasi' => $list_lokasi,
             'list_jenis' => $list_jenis,
-            'list_frekuensi' => $list_frekuensi
+            'list_jenis_port' => $list_jenis_port
         ]);
     }
 
@@ -47,7 +47,7 @@ class SwitchController extends Controller
         $data = $request->all();
 
         SwitchHub::create($data);
-        return redirect()->route('ap.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('switch.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -73,7 +73,7 @@ class SwitchController extends Controller
         $data = $request->all();
         $item = SwitchHub::find($id);
         $item->update($data);
-        return redirect()->route('ap.index')->with('success', 'Data berhasil diubah');
+        return redirect()->route('switch.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -86,6 +86,6 @@ class SwitchController extends Controller
     {
         $item = SwitchHub::find($id);
         $item->delete();
-        return redirect()->route('ap.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('switch.index')->with('success', 'Data berhasil dihapus');
     }
 }

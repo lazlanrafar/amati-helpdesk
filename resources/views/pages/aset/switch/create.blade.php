@@ -2,11 +2,11 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('ap.store') }}" method="POST">
+            <form action="{{ route('switch.store') }}" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
-                        Tambah Aset - Access Point
+                        Tambah Aset - Switch
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -17,11 +17,11 @@
                         <label for="lokasi">Lokasi</label>
                         <select class="form-control" id="lokasi" name="idlok" required>
                             <option value="" selected>-- pilih lokasi --</option>
-                            @foreach ($list_lokasi as $item)
-                                <option value="{{ $item->id }}">
-                                    {{ $item->nama_lokasi }},
-                                    {{ $item->unit }},
-                                    {{ $item->sublokasi }}
+                            @foreach ($list_lokasi as $lokasi)
+                                <option value="{{ $lokasi->id }}">
+                                    {{ $lokasi->nama_lokasi }},
+                                    {{ $lokasi->unit }},
+                                    {{ $lokasi->sublokasi }}
                                 </option>
                             @endforeach
                         </select>
@@ -30,17 +30,17 @@
                         <label for="brand">Brand</label>
                         <select class="form-control" id="brand" name="idbrand" required>
                             <option value="" selected>-- pilih brand --</option>
-                            @foreach ($list_brand as $item)
-                                <option value="{{ $item->id }}">
-                                    {{ $item->nama_brand }}
-                                    {{ $item->tipe_brand }}
+                            @foreach ($list_brand as $brand)
+                                <option value="{{ $brand->id }}">
+                                    {{ $brand->nama_brand }}
+                                    {{ $brand->tipe_brand }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="jenis-ap">Jenis Access Point</label>
-                        <select class="form-control" id="jenis-ap" name="jenis_ap" required>
+                        <label for="jenis-switch">Jenis Switch</label>
+                        <select class="form-control" id="jenis-switch" name="jenis_switch" required>
                             <option value="" selected>-- pilih jenis --</option>
                             @foreach ($list_jenis as $jenis)
                                 <option value="{{ $jenis }}">
@@ -55,10 +55,10 @@
                             name="jumlah_port" required />
                     </div>
                     <div class="form-group">
-                        <label for="frekuensi">Frekuensi</label>
-                        <select class="form-control" id="frekuensi" name="frekuensi" required>
-                            <option value="" selected>-- pilih frekuensi --</option>
-                            @foreach ($list_frekuensi as $jenis)
+                        <label for="jenis_port">Jenis Port</label>
+                        <select class="form-control" id="jenis_port" name="jenis_port" required>
+                            <option value="" selected>-- pilih jenis port --</option>
+                            @foreach ($list_jenis_port as $jenis)
                                 <option value="{{ $jenis }}">
                                     {{ $jenis }}
                                 </option>
