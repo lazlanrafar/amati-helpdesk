@@ -72,7 +72,7 @@
                                             <td>{{ $item->keterangan }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('ap.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('switch.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
