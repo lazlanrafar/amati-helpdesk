@@ -44,7 +44,7 @@ class LokasiController extends Controller
     {
         $data = $request->all();
         Lokasi::create($data);
-        return redirect()->route('lokasi.index');
+        return redirect()->route('lokasi.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -83,6 +83,6 @@ class LokasiController extends Controller
     {
         $item = Lokasi::find($id);
         $item->delete();
-        return redirect()->route('lokasi.index');
+        return redirect()->route('lokasi.index')->with('success', 'Data berhasil dihapus');
     }
 }
