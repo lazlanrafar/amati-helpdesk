@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class History extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'uid',
+        'jenis_history',
+        'idprkt',
+        'kerusakan',
+        'perbaikan',
+        'tanggal',
+    ];
 }

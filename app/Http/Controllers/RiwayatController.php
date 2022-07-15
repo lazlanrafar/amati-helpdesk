@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\History;
+use App\Models\AccessPoint;
+use App\Models\Hardware;
+use App\Models\SwitchHub;
 
 class RiwayatController extends Controller
 {
@@ -13,17 +17,17 @@ class RiwayatController extends Controller
      */
     public function index()
     {
-        return view('pages.riwayat.index');
-    }
+        $items = History::all();
+        $list_ap = AccessPoint::join('brands', 'brands.id', '=', 'access_points.idbrand')->select('access_points.*', 'brands.nama_brand', 'brands.tipe_brand')->get();
+        $list_hardware = Hardware::join('brands', 'brands.id', '=', 'hardware.idbrand')->select('hardware.*', 'brands.nama_brand', 'brands.tipe_brand')->get();
+        $list_switch = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand')->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('pages.riwayat.index', [
+            'items' => $items,
+            'list_ap' => $list_ap,
+            'list_hardware' => $list_hardware,
+            'list_switch' => $list_switch,
+        ]);
     }
 
     /**
@@ -34,7 +38,10 @@ class RiwayatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['tanggal'] = date('Y-m-d', strtotime($data['tanggal']));
+        History::create($data);
+        return redirect()->route('riwayat.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -79,6 +86,7 @@ class RiwayatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        History::destroy($id);
+        return redirect()->route('riwayat.index')->with('success', 'Data berhasil dihapus');
     }
 }
