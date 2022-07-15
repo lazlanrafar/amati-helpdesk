@@ -16,7 +16,7 @@ class SSIDController extends Controller
     public function index()
     {
         $items = SSID::join('lokasis', 'lokasis.id', '=', 's_s_i_d_s.idlok')
-            ->select('s_s_i_d_s.*', 'lokasis.*')
+            ->select('s_s_i_d_s.*', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
             ->get();
         $list_lokasi = Lokasi::all();
 
@@ -36,7 +36,7 @@ class SSIDController extends Controller
     {
         $data = $request->all();
         SSID::create($data);
-        return redirect()->route('ssid.index');
+        return redirect()->route('ssid.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -61,7 +61,7 @@ class SSIDController extends Controller
     {
         $data = $request->all();
         SSID::find($id)->update($data);
-        return redirect()->route('ssid.index');
+        return redirect()->route('ssid.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -73,6 +73,6 @@ class SSIDController extends Controller
     public function destroy($id)
     {
         SSID::find($id)->delete();
-        return redirect()->route('ssid.index');
+        return redirect()->route('ssid.index')->with('success', 'Data berhasil dihapus');
     }
 }
