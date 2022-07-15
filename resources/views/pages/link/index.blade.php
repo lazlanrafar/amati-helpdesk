@@ -24,23 +24,72 @@
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Rendering</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
+                                        <th>No</th>
+                                        <th>Switch</th>
+                                        <th>UID</th>
+                                        <th>Port</th>
+                                        <th>Status</th>
+                                        <th>Arah</th>
+                                        <th>Keterangan</th>
+                                        <th>Last Update</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 4.0
-                                        </td>
-                                        <td>Win 95+</td>
-                                        <td> 4</td>
-                                        <td>X</td>
-                                    </tr>
+                                    <?php $i = 1; ?>
+                                    @forelse ($items as $item)
+                                        <tr>
+                                            <td>{{ $i }}</td>
+                                            <td>{{ $item->nama_brand }}</td>
+                                            <td>{{ $item->uid }}</td>
+                                            <td>{{ $item->port }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->arah }}</td>
+                                            <td>{{ $item->keterangan }}</td>
+                                            <td>{{ $item->updated_at }}</td>
+                                            <td>
+                                                <form id="formDelete{{ $item->id }}"
+                                                    action="{{ route('link.destroy', $item->id) }}" method="POST"
+                                                    class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a type="button" class="btn btn-danger"
+                                                        onclick="handleDelete({{ $item->id }})">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </form>
+
+                                                <script>
+                                                    function handleDelete(id) {
+                                                        Swal.fire({
+                                                            title: 'Are you sure?',
+                                                            text: "You won't be able to revert this!",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Yes, delete it!'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                document.getElementById('formDelete' + id).submit();
+                                                            }
+                                                        })
+                                                    }
+                                                </script>
+                                                <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#formUpdate{{ $item->id }}">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center">
+                                                Data Kosong
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

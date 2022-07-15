@@ -61,17 +61,6 @@ class LinkController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -91,6 +80,7 @@ class LinkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Link::destroy($id);
+        return redirect()->route('link.index')->with('success', 'Data berhasil dihapus');
     }
 }
