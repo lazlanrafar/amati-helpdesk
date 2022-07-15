@@ -44,7 +44,9 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Link::create($data);
+        return redirect()->route('link.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

@@ -2,12 +2,12 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('brand.store') }}" method="POST">
+            <form action="{{ route('link.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="uid" value="{{ request()->session()->get('user')['id'] }}">
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
-                        Tambah Brand
+                        Tambah Link
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
