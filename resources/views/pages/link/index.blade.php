@@ -83,6 +83,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
+                                        @include('pages.link.update')
                                     @empty
                                         <tr>
                                             <td colspan="9" class="text-center">
