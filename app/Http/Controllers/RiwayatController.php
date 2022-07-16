@@ -55,16 +55,6 @@ class RiwayatController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -75,7 +65,10 @@ class RiwayatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['tanggal'] = date('Y-m-d', strtotime($data['tanggal']));
+        History::find($id)->update($data);
+        return redirect()->route('riwayat.index')->with('success', 'Data berhasil diubah');
     }
 
     /**

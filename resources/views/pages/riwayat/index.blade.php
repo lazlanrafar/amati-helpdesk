@@ -39,7 +39,7 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->jenis_history }}</td>
-                                            <td>{{ $item->id_prkt }}</td>
+                                            <td>{{ $item->idprkt }}</td>
                                             <td>{{ $item->kerusakan }}</td>
                                             <td>{{ $item->perbaikan }}</td>
                                             <td>{{ $item->tanggal }}</td>
@@ -79,6 +79,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
+                                        @include('pages.riwayat.update')
                                     @empty
                                         <tr>
                                             <td colspan="7" class="text-center">
