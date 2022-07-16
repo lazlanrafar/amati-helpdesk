@@ -21,6 +21,9 @@
                         <i class="fas fa-users mr-2"></i> User List
                     </a>
                 @endif
+                <a href="/changepass" class="dropdown-item">
+                    <i class="fas fa-lock mr-2"></i> Ganti Password
+                </a>
                 <div class="dropdown-divider"></div>
                 <form action="/logout" method="POST">
                     @csrf

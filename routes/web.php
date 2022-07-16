@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 
 use App\Http\Controllers\Aset\APController;
 use App\Http\Controllers\Aset\HardwareController;
@@ -34,6 +35,8 @@ Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->na
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::resource('/changepass', ChangePasswordController::class)->middleware('auth');
 
 Route::resource('/', DashboardController::class)->middleware('auth');
 
