@@ -47,7 +47,9 @@ Route::resource('/aset/switch', SwitchController::class)->middleware('auth');
 Route::resource('/ssid', SSIDController::class)->middleware('auth');
 Route::resource('/link', LinkController::class)->middleware('auth');
 Route::resource('/riwayat', RiwayatController::class)->middleware('auth');
-Route::resource('/laporan', LaporanController::class)->middleware('auth');
 Route::resource('/lokasi', LokasiController::class)->middleware('auth');
 Route::resource('/brand', BrandController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');
+
+Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
+Route::post('/laporan', [LaporanController::class, 'filter'])->middleware('auth');
