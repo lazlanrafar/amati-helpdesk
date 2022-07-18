@@ -18,10 +18,8 @@ class APController extends Controller
      */
     public function index()
     {
-        $items = AccessPoint::join('brands', 'brands.id', '=', 'access_points.idbrand')
-            ->join('lokasis', 'lokasis.id', '=', 'access_points.idlok')
-            ->select('access_points.*', 'brands.nama_brand', 'brands.tipe_brand', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
-            ->get();
+        $items = AccessPoint::with('brand', 'lokasi')->get();
+
         $list_brand = Brand::where('jenis_brand', 'Jaringan')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Management', 'Non Management'];
@@ -45,11 +43,11 @@ class APController extends Controller
      */
     public function store(Request $request)
     {
-        $prefix = 'AP/UBINFRA/' . date('Y') . '/';
-        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'id', 'length' => 19, 'prefix' => $prefix]);
+        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'idap', 'length' => 6, 'prefix' => 'AP-']);
+        $idap = $id . '/' . 'UBINFRA/' . date('Y');
         
         $data = $request->all();
-        $data['id'] = $id;
+        $data['idap'] = $idap;
 
         AccessPoint::create($data);
         return redirect()->route('ap.index')->with('success', 'Data berhasil ditambahkan');

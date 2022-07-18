@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class AccessPoint extends Model
 {
     use HasFactory;
-    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -25,4 +24,12 @@ class AccessPoint extends Model
         'tgl_inventaris',
         'keterangan',
     ];
+
+    public function brand(){
+        return $this->belongsTo(Brand::class, 'idbrand');
+    }
+
+    public function lokasi(){
+        return $this->belongsTo(Lokasi::class, 'idlok');
+    }
 }

@@ -24,7 +24,7 @@
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
                                         <th>Jenis</th>
                                         <th>Brand</th>
                                         <th>Koneksi</th>
@@ -41,7 +41,7 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
+                                            <td>{{ $item->idhardware }}</td>
                                             <td>{{ $item->jenis_hardware }}</td>
                                             <td>
                                                 {{ $item->brand->nama_brand }}, {{ $item->brand->tipe_brand }}
