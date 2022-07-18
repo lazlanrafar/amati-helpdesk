@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Hardware;
 use App\Models\Brand;
 use App\Models\Lokasi;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class HardwareController extends Controller
 {
@@ -42,7 +43,11 @@ class HardwareController extends Controller
      */
     public function store(Request $request)
     {
+        $prefix = 'HW/UBINFRA/' . date('Y') . '/';
+        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'id', 'length' => 19, 'prefix' => $prefix]);
+
         $data = $request->all();
+        $data['id'] = $id;
 
         if($data['ipaddress'] == '' && $data['computer_name'] == ''){
             return redirect()->back()->with('error', 'IP Address atau Computer Name harus diisi');

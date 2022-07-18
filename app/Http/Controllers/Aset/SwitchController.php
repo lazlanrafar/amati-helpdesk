@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SwitchHub;
 use App\Models\Brand;
 use App\Models\Lokasi;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class SwitchController extends Controller
 {
@@ -44,7 +45,11 @@ class SwitchController extends Controller
      */
     public function store(Request $request)
     {
+        $prefix = 'SW/UBINFRA/' . date('Y') . '/';
+        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'id', 'length' => 19, 'prefix' => $prefix]);
+
         $data = $request->all();
+        $data['id'] = $id;
 
         SwitchHub::create($data);
         return redirect()->route('switch.index')->with('success', 'Data berhasil ditambahkan');
