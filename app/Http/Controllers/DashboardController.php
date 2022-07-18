@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\AccessPoint;
 use App\Models\Hardware;
 use App\Models\SwitchHub;
+use Illuminate\Support\Arr;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -57,6 +59,28 @@ class DashboardController extends Controller
         $card_5_total_switch = $list_switch->where('nama_lokasi', 'Unit Bisnis BES')->count();
         $card_5_total_all = $card_5_total_access_point + $card_5_total_hardware + $card_5_total_switch;
 
+        // Row 2
+
+        $total_aset_per_month = array();
+        for ($i=0; $i < 12; $i++) { 
+            $total_aset_per_month[$i] = array(
+                'month' => Carbon::now()->subMonths($i)->format('M'),
+                'total_access_point' => AccessPoint::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->count(),
+                'total_hardware' => Hardware::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->count(),
+                'total_switch' => SwitchHub::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->count(),
+            );
+        }
+
+        // $total_aset_per_month = array();
+        // foreach ($list_month as $month) {
+        //     $total_aset_per_month[$month] = array(
+        //         'access_point' => AccessPoint::whereMonth('created_at', $month)->count(),
+        //         'hardware' => Hardware::whereMonth('created_at', $month)->count(),
+        //         'switch' => SwitchHub::whereMonth('created_at', $month)->count(),
+        //         'month' => Carbon::parse($month)->format('M')
+        //     );
+        // }
+
         return view('pages.dashboard.index', [
             'card_1_name' => $card_1_name,
             'card_1_total_access_point' => $card_1_total_access_point,
@@ -87,6 +111,8 @@ class DashboardController extends Controller
             'card_5_total_hardware' => $card_5_total_hardware,
             'card_5_total_switch' => $card_5_total_switch,
             'card_5_total_all' => $card_5_total_all,
+
+            'total_aset_per_month' => $total_aset_per_month,
         ]);
     }
 }

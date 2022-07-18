@@ -21,6 +21,9 @@
         @include('includes.footer')
     </div>
     @include('includes.scripts')
+    @if (Request::is('/'))
+        @include('includes.chart-script')
+    @endif
 </body>
 
 </html>
