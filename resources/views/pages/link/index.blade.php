@@ -37,11 +37,11 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    @forelse ($items as $item)
+                                    @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->nama_brand }}</td>
-                                            <td>{{ $item->uid }}</td>
+                                            <td>{{ $item->switch->idswitch }}</td>
+                                            <td>{{ $item->user->nama }}</td>
                                             <td>{{ $item->port }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>{{ $item->arah }}</td>
@@ -84,13 +84,7 @@
                                         </tr>
                                         <?php $i++; ?>
                                         @include('pages.link.update')
-                                    @empty
-                                        <tr>
-                                            <td colspan="9" class="text-center">
-                                                Data Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

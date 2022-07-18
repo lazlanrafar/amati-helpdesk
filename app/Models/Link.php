@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SwitchHub;
 
 class Link extends Model
 {
@@ -22,4 +23,12 @@ class Link extends Model
         'arah',
         'keterangan',
     ];
+
+    public function switch(){
+        return $this->belongsTo(SwitchHub::class, 'idswitch');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'uid');
+    }
 }

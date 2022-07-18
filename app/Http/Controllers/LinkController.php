@@ -15,7 +15,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $items = Link::all();
+        $items = Link::with('switch', 'user')->get();
         $list_switch = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')
         ->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand')
         ->get();
