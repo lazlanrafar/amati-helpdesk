@@ -18,7 +18,6 @@ use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\SSIDController;
 use App\Http\Controllers\UserController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
