@@ -28,8 +28,7 @@
                                         <th>Jenis</th>
                                         <th>Brand</th>
                                         <th>Koneksi</th>
-                                        <th>IP Address</th>
-                                        <th>Komputer Name</th>
+                                        <th>Komputer Name / IP</th>
                                         <th>Sharing</th>
                                         <th>Tgl Inventaris</th>
                                         <th>Lokasi</th>
@@ -47,12 +46,13 @@
                                                 {{ $item->brand->nama_brand }}, {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->koneksi }}</td>
-                                            <td>{{ $item->ipaddress }}</td>
                                             <td>
-                                                @if ($item->computer_name)
+                                                @if ($item->computer_name && $item->ipaddress)
+                                                    {{ $item->computer_name }} / {{ $item->ipaddress }}
+                                                @elseif ($item->ipaddress)
+                                                    {{ $item->ipaddress }}
+                                                @elseif ($item->computer_name)
                                                     {{ $item->computer_name }}
-                                                @else
-                                                    -
                                                 @endif
                                             </td>
                                             <td>{{ $item->sharing }}</td>
@@ -95,6 +95,9 @@
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-primary">
+                                                    <i class="fa fa-qrcode"></i>
                                                 </a>
                                             </td>
                                         </tr>

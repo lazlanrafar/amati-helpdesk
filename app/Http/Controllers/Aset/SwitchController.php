@@ -18,10 +18,8 @@ class SwitchController extends Controller
      */
     public function index()
     {
-        $items = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')
-            ->join('lokasis', 'lokasis.id', '=', 'switch_hubs.idlok')
-            ->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
-            ->get();
+        $items = SwitchHub::with('brand', 'lokasi')->get();
+
         $list_brand = Brand::where('jenis_brand', 'Jaringan')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Management', 'Non Management'];
@@ -45,11 +43,11 @@ class SwitchController extends Controller
      */
     public function store(Request $request)
     {
-        $prefix = 'SW/UBINFRA/' . date('Y') . '/';
-        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'id', 'length' => 19, 'prefix' => $prefix]);
+        $id = IdGenerator::generate(['table' => 'switch_hubs', 'field' => 'idswitch', 'length' => 6, 'prefix' => 'SW-']);
+        $idswitch = $id . '/' . 'UBINFRA/' . date('Y');
 
         $data = $request->all();
-        $data['id'] = $id;
+        $data['idswitch'] = $idswitch;
 
         SwitchHub::create($data);
         return redirect()->route('switch.index')->with('success', 'Data berhasil ditambahkan');

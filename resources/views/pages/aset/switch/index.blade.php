@@ -24,7 +24,7 @@
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
                                         <th>Jenis</th>
                                         <th>Brand</th>
                                         <th>Jumlah Port</th>
@@ -37,18 +37,21 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    @forelse ($items as $item)
+                                    @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
+                                            <td>{{ $item->idswitch }}</td>
                                             <td>{{ $item->jenis_switch }}</td>
                                             <td>
-                                                {{ $item->nama_brand }}, {{ $item->tipe_brand }}
+                                                {{ $item->brand->nama_brand }},
+                                                {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->jumlah_port }}</td>
                                             <td>{{ $item->jenis_port }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->nama_lokasi }}, {{ $item->unit }}, {{ $item->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }},
+                                                {{ $item->lokasi->unit }},
+                                                {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                             <td>
@@ -84,17 +87,14 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
+                                                <a href="#" class="btn btn-primary">
+                                                    <i class="fa fa-qrcode"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
                                         @include('pages.aset.switch.update')
-                                    @empty
-                                        <tr>
-                                            <td colspan="9" class="text-center">
-                                                Data Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
