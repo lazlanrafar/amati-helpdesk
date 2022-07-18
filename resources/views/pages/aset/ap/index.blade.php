@@ -26,6 +26,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Jenis</th>
+                                        <th>Jenis</th>
                                         <th>Brand</th>
                                         <th>Jumlah Port</th>
                                         <th>Frekuensi</th>
@@ -40,6 +41,7 @@
                                     @forelse ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
+                                            <td>{!! $item->id !!}</td>
                                             <td>{{ $item->jenis_ap }}</td>
                                             <td>
                                                 {{ $item->nama_brand }}, {{ $item->tipe_brand }}
@@ -83,6 +85,9 @@
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="{{ route('ap.show', $item->id) }}" class="btn btn-primary">
+                                                    <i class="fa fa-qrcode"></i>
                                                 </a>
                                             </td>
                                         </tr>

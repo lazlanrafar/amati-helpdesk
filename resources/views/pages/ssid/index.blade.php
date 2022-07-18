@@ -45,8 +45,9 @@
                                             <td>{{ $item->jenis_ssid }}</td>
                                             <td>{{ $item->keterangan }}</td>
                                             <td>
-                                                {{ $item->nama_lokasi }}, {{ $item->unit }},
-                                                {{ $item->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi ?? '' }},
+                                                {{ $item->lokasi->unit ?? '' }},
+                                                {{ $item->lokasi->sublokasi ?? '' }}
                                             </td>
                                             <td>
                                                 <a type="button" class="btn btn-danger" data-toggle="modal"

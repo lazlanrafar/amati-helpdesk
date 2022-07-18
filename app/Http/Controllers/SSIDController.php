@@ -15,9 +15,7 @@ class SSIDController extends Controller
      */
     public function index()
     {
-        $items = SSID::join('lokasis', 'lokasis.id', '=', 's_s_i_d_s.idlok')
-            ->select('s_s_i_d_s.*', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
-            ->get();
+        $items = SSID::with(['lokasi'])->get();
         $list_lokasi = Lokasi::all();
 
         return view('pages.ssid.index', [

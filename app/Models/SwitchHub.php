@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SwitchHub extends Model
 {
     use HasFactory;
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +16,7 @@ class SwitchHub extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
+        'idswitch',
         'idlok',
         'idbrand',
         'jenis_switch',

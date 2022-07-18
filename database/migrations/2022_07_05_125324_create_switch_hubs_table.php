@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('switch_hubs', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->id();
+            $table->string('idswitch');
             $table->integer('idbrand');
             $table->integer('idlok');
             $table->string('jenis_switch');

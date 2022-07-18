@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('access_points', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->id();
+            $table->string('idap');
             $table->integer('idbrand');
             $table->integer('idlok');
             $table->string('jenis_ap');

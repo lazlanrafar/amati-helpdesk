@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AccessPoint extends Model
 {
     use HasFactory;
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +16,7 @@ class AccessPoint extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
+        'idap',
         'idlok',
         'idbrand',
         'jenis_ap',

@@ -39,7 +39,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    @forelse ($items as $item)
+                                    @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->jenis_hardware }}</td>
@@ -98,13 +98,7 @@
                                         </tr>
                                         <?php $i++; ?>
                                         @include('pages.aset.hardware.update')
-                                    @empty
-                                        <tr>
-                                            <td colspan="10" class="text-center">
-                                                Data Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -43,11 +43,11 @@ class HardwareController extends Controller
      */
     public function store(Request $request)
     {
-        $prefix = 'HW/UBINFRA/' . date('Y') . '/';
-        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'id', 'length' => 19, 'prefix' => $prefix]);
+        $idgenerator = IdGenerator::generate(['table' => 'hardware', 'field' => 'idhardware', 'length' => 6, 'prefix' => 'HW-']);
+        $idhardware = $idgenerator . "/" . "UBINFRA" . "/" . date('Y');
 
         $data = $request->all();
-        $data['id'] = $id;
+        $data['idhardware'] = $idhardware;
 
         if($data['ipaddress'] == '' && $data['computer_name'] == ''){
             return redirect()->back()->with('error', 'IP Address atau Computer Name harus diisi');
