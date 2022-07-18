@@ -11,20 +11,9 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        $list_ap = AccessPoint::join('brands', 'brands.id', '=', 'access_points.idbrand')
-            ->join('lokasis', 'lokasis.id', '=', 'access_points.idlok')
-            ->select('access_points.*', 'brands.nama_brand', 'brands.tipe_brand', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
-            ->get();
-
-        $list_hardware = Hardware::join('brands', 'brands.id', '=', 'hardware.idbrand')
-            ->join('lokasis', 'lokasis.id', '=', 'hardware.idlok')
-            ->select('hardware.*', 'brands.nama_brand', 'brands.tipe_brand', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
-            ->get();
-
-        $list_switch = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')
-            ->join('lokasis', 'lokasis.id', '=', 'switch_hubs.idlok')
-            ->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand', 'lokasis.nama_lokasi', 'lokasis.unit', 'lokasis.sublokasi')
-            ->get();
+        $list_ap = AccessPoint::with('brand', 'lokasi')->get();
+        $list_hardware = Hardware::with('brand', 'lokasi')->get();
+        $list_switch = SwitchHub::with('brand', 'lokasi')->get();
 
         $from_date = '';
         $end_date = '';

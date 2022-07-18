@@ -61,14 +61,17 @@
                                     @foreach ($list_ap as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>Access Point</td>
+                                            <td>{{ $item->idap }}</td>
                                             <td>
-                                                {{ $item->nama_brand }}, {{ $item->tipe_brand }}
+                                                {{ $item->brand->nama_brand }},
+                                                {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->jenis_ap }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->nama_lokasi }}, {{ $item->unit }}, {{ $item->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }},
+                                                {{ $item->lokasi->unit }},
+                                                {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                         </tr>
@@ -77,14 +80,17 @@
                                     @foreach ($list_hardware as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>Hardware</td>
+                                            <td>{{ $item->idhardware }}</td>
                                             <td>
-                                                {{ $item->nama_brand }}, {{ $item->tipe_brand }}
+                                                {{ $item->brand->nama_brand }},
+                                                {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->jenis_hardware }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->nama_lokasi }}, {{ $item->unit }}, {{ $item->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }},
+                                                {{ $item->lokasi->unit }},
+                                                {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                         </tr>
@@ -93,14 +99,17 @@
                                     @foreach ($list_switch as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>Switch</td>
+                                            <td>{{ $item->idswitch }}</td>
                                             <td>
-                                                {{ $item->nama_brand }}, {{ $item->tipe_brand }}
+                                                {{ $item->brand->nama_brand }},
+                                                {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->jenis_switch }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->nama_lokasi }}, {{ $item->unit }}, {{ $item->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }},
+                                                {{ $item->lokasi->unit }},
+                                                {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                         </tr>
