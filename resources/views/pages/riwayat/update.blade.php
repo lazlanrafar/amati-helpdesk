@@ -27,32 +27,32 @@
                             <option disabled style="font-weight: 700">HARDWARE</option>
                             @foreach ($list_hardware as $h)
                                 @if ($h->id == $item->idprkt)
-                                    <option selected value="{{ $h->id }}">
+                                    <option selected value="{{ $h->idhardware }}">
                                         {{ $h->jenis_hardware }},
-                                        {{ $h->nama_brand }}
-                                        {{ $h->tipe_brand }}
+                                        {{ $h->brand->nama_brand }}
+                                        {{ $h->brand->tipe_brand }}
                                     </option>
                                 @else
-                                    <option value="{{ $h->id }}">
+                                    <option value="{{ $h->idhardware }}">
                                         {{ $h->jenis_hardware }},
-                                        {{ $h->nama_brand }}
-                                        {{ $h->tipe_brand }}
+                                        {{ $h->brand->nama_brand }}
+                                        {{ $h->brand->tipe_brand }}
                                     </option>
                                 @endif
                             @endforeach
                             <option disabled style="font-weight: 700">ACCESS POINT</option>
                             @foreach ($list_ap as $ap)
                                 @if ($ap->id == $item->idprkt)
-                                    <option selected value="{{ $ap->id }}">
+                                    <option selected value="{{ $ap->idap }}">
                                         {{ $ap->nama_ap }},
-                                        {{ $ap->nama_brand }}
-                                        {{ $ap->tipe_brand }}
+                                        {{ $ap->brand->nama_brand }}
+                                        {{ $ap->brand->tipe_brand }}
                                     </option>
                                 @else
-                                    <option value="{{ $ap->id }}">
+                                    <option value="{{ $ap->idap }}">
                                         {{ $ap->jenis_ap }},
-                                        {{ $ap->nama_brand }}
-                                        {{ $ap->tipe_brand }},
+                                        {{ $ap->brand->nama_brand }}
+                                        {{ $ap->brand->tipe_brand }},
                                         {{ $ap->frekuensi }}
                                     </option>
                                 @endif
@@ -60,16 +60,16 @@
                             <option disabled style="font-weight: 700">SWITCH</option>
                             @foreach ($list_switch as $s)
                                 @if ($s->id == $item->idprkt)
-                                    <option selected value="{{ $s->id }}">
+                                    <option selected value="{{ $s->idswitch }}">
                                         {{ $s->nama_switch }},
-                                        {{ $s->nama_brand }}
-                                        {{ $s->tipe_brand }}
+                                        {{ $s->brand->nama_brand }}
+                                        {{ $s->brand->tipe_brand }}
                                     </option>
                                 @else
-                                    <option value="{{ $s->id }}">
+                                    <option value="{{ $s->idswitch }}">
                                         {{ $s->jenis_switch }},
-                                        {{ $s->nama_brand }}
-                                        {{ $s->tipe_brand }},
+                                        {{ $s->brand->nama_brand }}
+                                        {{ $s->brand->tipe_brand }},
                                         {{ $s->jumlah_port }}
                                         {{ $s->jenis_port }}
                                     </option>

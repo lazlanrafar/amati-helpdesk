@@ -25,27 +25,27 @@
                             <option selected value="">-- Pilih perangkat --</option>
                             <option disabled style="font-weight: 700">HARDWARE</option>
                             @foreach ($list_hardware as $h)
-                                <option value="{{ $h->id }}">
+                                <option value="{{ $h->idhardware }}">
                                     {{ $h->jenis_hardware }},
-                                    {{ $h->nama_brand }}
-                                    {{ $h->tipe_brand }}
+                                    {{ $h->brand->nama_brand }}
+                                    {{ $h->brand->tipe_brand }}
                                 </option>
                             @endforeach
                             <option disabled style="font-weight: 700">ACCESS POINT</option>
                             @foreach ($list_ap as $ap)
-                                <option value="{{ $ap->id }}">
+                                <option value="{{ $ap->idap }}">
                                     {{ $ap->jenis_ap }},
-                                    {{ $ap->nama_brand }}
-                                    {{ $ap->tipe_brand }},
+                                    {{ $ap->brand->nama_brand }}
+                                    {{ $ap->brand->tipe_brand }},
                                     {{ $ap->frekuensi }}
                                 </option>
                             @endforeach
                             <option disabled style="font-weight: 700">SWITCH</option>
                             @foreach ($list_switch as $s)
-                                <option value="{{ $s->id }}">
+                                <option value="{{ $s->idswitch }}">
                                     {{ $s->jenis_switch }},
-                                    {{ $s->nama_brand }}
-                                    {{ $s->tipe_brand }},
+                                    {{ $s->brand->nama_brand }}
+                                    {{ $s->brand->tipe_brand }},
                                     {{ $s->jumlah_port }}
                                     {{ $s->jenis_port }}
                                 </option>

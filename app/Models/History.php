@@ -22,4 +22,9 @@ class History extends Model
         'perbaikan',
         'tanggal',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'uid');
+    }
+    
 }

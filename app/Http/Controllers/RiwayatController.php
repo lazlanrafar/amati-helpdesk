@@ -17,10 +17,10 @@ class RiwayatController extends Controller
      */
     public function index()
     {
-        $items = History::all();
-        $list_ap = AccessPoint::join('brands', 'brands.id', '=', 'access_points.idbrand')->select('access_points.*', 'brands.nama_brand', 'brands.tipe_brand')->get();
-        $list_hardware = Hardware::join('brands', 'brands.id', '=', 'hardware.idbrand')->select('hardware.*', 'brands.nama_brand', 'brands.tipe_brand')->get();
-        $list_switch = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand')->get();
+        $items = History::with('user')->get();
+        $list_ap = AccessPoint::with('brand', 'lokasi')->get();
+        $list_hardware = Hardware::with('brand', 'lokasi')->get();
+        $list_switch = SwitchHub::with('brand', 'lokasi')->get();
 
         return view('pages.riwayat.index', [
             'items' => $items,

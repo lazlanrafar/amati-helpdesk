@@ -35,7 +35,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    @forelse ($items as $item)
+                                    @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->jenis_history }}</td>
@@ -80,13 +80,7 @@
                                         </tr>
                                         <?php $i++; ?>
                                         @include('pages.riwayat.update')
-                                    @empty
-                                        <tr>
-                                            <td colspan="7" class="text-center">
-                                                Data Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
