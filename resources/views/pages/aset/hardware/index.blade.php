@@ -44,7 +44,7 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->jenis_hardware }}</td>
                                             <td>
-                                                {{ $item->nama_brand }}, {{ $item->tipe_brand }}
+                                                {{ $item->brand->nama_brand }}, {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->koneksi }}</td>
                                             <td>{{ $item->ipaddress }}</td>
@@ -58,7 +58,9 @@
                                             <td>{{ $item->sharing }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->nama_lokasi }}, {{ $item->unit }}, {{ $item->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }},
+                                                {{ $item->lokasi->unit }},
+                                                {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                             <td>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Brand;
 
 class Hardware extends Model
 {
@@ -25,4 +26,12 @@ class Hardware extends Model
         'tgl_inventaris',
         'keterangan',
     ];
+
+    public function brand(){
+        return $this->belongsTo(Brand::class, 'idbrand');
+    }
+
+    public function lokasi(){
+        return $this->belongsTo(Lokasi::class, 'idlok');
+    }
 }
