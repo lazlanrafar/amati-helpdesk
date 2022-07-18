@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\AccessPoint;
 use App\Models\Brand;
 use App\Models\Lokasi;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class APController extends Controller
 {
@@ -44,7 +45,11 @@ class APController extends Controller
      */
     public function store(Request $request)
     {
+        $prefix = 'AP/UBINFRA/' . date('Y') . '/';
+        $id = IdGenerator::generate(['table' => 'access_points', 'field' => 'id', 'length' => 19, 'prefix' => $prefix]);
+        
         $data = $request->all();
+        $data['id'] = $id;
 
         AccessPoint::create($data);
         return redirect()->route('ap.index')->with('success', 'Data berhasil ditambahkan');

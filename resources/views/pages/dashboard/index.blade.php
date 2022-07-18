@@ -25,6 +25,7 @@
                 </div>
             </div>
             @include('pages.dashboard.row-1')
+            @include('pages.dashboard.row-2')
         </div>
     </section>
 @endsection

@@ -1,4 +1,4 @@
-<div class="row justify-content-around">
+<div class="row justify-content-between">
     <div class="col-lg-2 col-6">
         <!-- small box -->
         <div class="small-box bg-info">
