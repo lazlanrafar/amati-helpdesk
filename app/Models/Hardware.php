@@ -15,6 +15,7 @@ class Hardware extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'idlok',
         'idbrand',
         'jenis_hardware',

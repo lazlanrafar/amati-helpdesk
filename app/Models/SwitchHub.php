@@ -15,6 +15,7 @@ class SwitchHub extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'idlok',
         'idbrand',
         'jenis_switch',
