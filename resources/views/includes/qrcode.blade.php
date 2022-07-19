@@ -22,10 +22,29 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Close
                 </button>
-                <a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $dataqrcode }}"
+                {{-- <a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $dataqrcode }}&format=png"
                     download="{{ $filename }}" class="btn btn-primary" target="_BLANK">
                     Download
-                </a>
+                </a> --}}
+                <button onclick="handleDownload()" class="btn btn-primary">
+                    Download
+                </button>
+
+                <script>
+                    function handleDownload() {
+                        // window.open("https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $dataqrcode }}&format=png",
+                        //     "_blank");
+
+                        var qrCodeBaseUri = 'https://api.qrserver.com/v1/create-qr-code/?',
+                            params = {
+                                data: '{{ $dataqrcode }}',
+                                size: '150x150',
+                                margin: 0,
+                                download: 1,
+                            };
+                        window.location.href = qrCodeBaseUri + $.param(params);
+                    }
+                </script>
             </div>
         </div>
     </div>
