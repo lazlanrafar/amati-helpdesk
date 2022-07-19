@@ -89,13 +89,15 @@
                                                 </a>
                                                 <?php
                                                 $dataqrcode = $item->idap . '- Jenis AP : ' . $item->jenis_ap . '-' . $item->brand->nama_brand . $item->brand->tipe_brand . '- Port : ' . $item->jumlah_port . $item->frekuensi . '- Tanggal Inventaris :' . $item->tgl_inventaris . '- Lokasi :' . $item->lokasi->nama_lokasi . ',' . $item->lokasi->unit . ',' . $item->lokasi->sublokasi . '- Keterangan :' . $item->keterangan;
-                                                
                                                 ?>
-                                                <a download
-                                                    href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $dataqrcode }}"
-                                                    target="_BLANK" class="btn btn-primary">
+                                                <a type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#modalQrCode{{ $item->id }}">
                                                     <i class="fa fa-qrcode"></i>
                                                 </a>
+                                                @include('includes.qrcode', [
+                                                    'title' => 'QrCode Aset - Access Point',
+                                                    'filename' => $item->idap,
+                                                ])
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
