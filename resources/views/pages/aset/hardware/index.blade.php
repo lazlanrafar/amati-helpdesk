@@ -96,9 +96,17 @@
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-primary">
+                                                <?php
+                                                $dataqrcode = $item->idhardware . '-' . $item->jenis_hardware . '-' . $item->brand->nama_brand . '-' . $item->brand->tipe_brand . '-' . $item->koneksi . '-' . $item->computer_name . '-' . $item->ipaddress . '-' . $item->sharing . '-' . $item->tgl_inventaris . '-' . $item->lokasi->nama_lokasi . '-' . $item->lokasi->unit . '-' . $item->lokasi->sublokasi . '-' . $item->keterangan;
+                                                ?>
+                                                <a type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#modalQrCode{{ $item->id }}">
                                                     <i class="fa fa-qrcode"></i>
                                                 </a>
+                                                @include('includes.qrcode', [
+                                                    'title' => 'QrCode Aset - Hardware',
+                                                    'filename' => $item->idhardware,
+                                                ])
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
