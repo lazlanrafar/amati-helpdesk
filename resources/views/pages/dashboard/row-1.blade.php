@@ -3,8 +3,8 @@
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3 class="mb-0">{{ $card_1_total_all }}</h3>
-                <p>{{ $card_1_name }}</p>
+                <h3 class="mb-0 text-center">{{ $card_1_total_all }}</h3>
+                <p class="text-center">{{ $card_1_name }}</p>
                 <hr>
                 <div class="row text-center">
                     <div class="col-4">
@@ -27,8 +27,8 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3 class="mb-0">{{ $card_2_total_all }}</h3>
-                <p>{{ $card_2_name }}</p>
+                <h3 class="mb-0 text-center">{{ $card_2_total_all }}</h3>
+                <p class="text-center">{{ $card_2_name }}</p>
                 <hr>
                 <div class="row text-center">
                     <div class="col-4">
@@ -51,8 +51,8 @@
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3 class="mb-0">{{ $card_3_total_all }}</h3>
-                <p>{{ $card_3_name }}</p>
+                <h3 class="mb-0 text-center">{{ $card_3_total_all }}</h3>
+                <p class="text-center">{{ $card_3_name }}</p>
                 <hr>
                 <div class="row text-center">
                     <div class="col-4">
@@ -75,8 +75,8 @@
         <!-- small box -->
         <div class="small-box bg-primary">
             <div class="inner">
-                <h3 class="mb-0">{{ $card_4_total_all }}</h3>
-                <p>{{ $card_4_name }}</p>
+                <h3 class="mb-0 text-center">{{ $card_4_total_all }}</h3>
+                <p class="text-center">{{ $card_4_name }}</p>
                 <hr>
                 <div class="row text-center">
                     <div class="col-4">
@@ -99,8 +99,8 @@
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3 class="mb-0">{{ $card_5_total_all }}</h3>
-                <p>{{ $card_5_name }}</p>
+                <h3 class="mb-0 text-center">{{ $card_5_total_all }}</h3>
+                <p class="text-center">{{ $card_5_name }}</p>
                 <hr>
                 <div class="row text-center">
                     <div class="col-4">

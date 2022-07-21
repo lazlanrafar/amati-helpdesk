@@ -24,7 +24,9 @@
                     </div>
                     <div class="form-group">
                         <label>Unit</label>
-                        <select class="form-control" name="unit" required>
+                        <input type="text" class="form-control" id="unit" placeholder="Enter unit"
+                            name="unit" required />
+                        {{-- <select class="form-control" name="unit" required>
                             <option selected value="">-- Pilih Unit --</option>
                             <option disabled style="font-weight: 700">KANTOR KORPORAT</option>
                             @foreach ($list_unit_kantor_korporat as $unit)
@@ -50,7 +52,7 @@
                             @foreach ($list_unit_bisnis_bes as $unit)
                                 <option value="{{ $unit }}">{{ $unit }}</option>
                             @endforeach
-                        </select>
+                        </select> --}}
                     </div>
 
                     <div class="form-group">

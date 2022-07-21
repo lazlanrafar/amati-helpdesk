@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-light bg-warning">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -13,7 +13,7 @@
                 <img src="https://ui-avatars.com/api/?name={{ request()->session()->get('user')['nama'] }}"
                     class="user-image
                 img-circle" alt="User Image">
-                <span class="hidden-xs">{{ request()->session()->get('user')['nama'] }}</span>
+                <span class="hidden-xs" style="color:black">{{ request()->session()->get('user')['nama'] }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 @if (request()->session()->get('user')['akses'] == 'STAFF')

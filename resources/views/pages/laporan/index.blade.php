@@ -66,7 +66,7 @@
                                                 {{ $item->brand->nama_brand }},
                                                 {{ $item->brand->tipe_brand }}
                                             </td>
-                                            <td>{{ $item->jenis_ap }}</td>
+                                            <td>Access Point</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
                                                 {{ $item->lokasi->nama_lokasi }},
@@ -104,7 +104,7 @@
                                                 {{ $item->brand->nama_brand }},
                                                 {{ $item->brand->tipe_brand }}
                                             </td>
-                                            <td>{{ $item->jenis_switch }}</td>
+                                            <td>Switch</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
                                                 {{ $item->lokasi->nama_lokasi }},
