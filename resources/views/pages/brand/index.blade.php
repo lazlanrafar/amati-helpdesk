@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
                             @include('pages.brand.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
@@ -34,7 +34,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    @forelse ($items as $item)
+                                    @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->nama_brand }}</td>
@@ -76,13 +76,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                    @include('pages.brand.update') @empty
-                                        <tr>
-                                            <td colspan="5" class="text-center">
-                                                Data Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -20,7 +20,7 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
                             @include('pages.ssid.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
