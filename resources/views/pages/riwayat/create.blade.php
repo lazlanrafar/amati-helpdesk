@@ -63,13 +63,11 @@
                     </div>
                     <div class="form-group">
                         <label for="kerusakan">Kerusakan</label>
-                        <input type="text" class="form-control" id="kerusakan" placeholder="Enter Kerusakan"
-                            name="kerusakan" />
+                        <textarea type="text" class="form-control" id="kerusakan" placeholder="Enter Kerusakan" name="kerusakan"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="perbaikan">Perbaikan</label>
-                        <input type="text" class="form-control" id="perbaikan" placeholder="Enter Perbaikan"
-                            name="perbaikan" required />
+                        <textarea type="text" class="form-control" id="perbaikan" placeholder="Enter Perbaikan" name="perbaikan" required></textarea>
                     </div>
 
                 </div>
@@ -77,8 +75,8 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary">
-                        Save changes
+                    <button type="submit" class="btn btn-warning">
+                        Simpan
                     </button>
                 </div>
             </form>
