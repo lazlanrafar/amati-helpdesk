@@ -49,7 +49,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Aset</th>
-                                        <th>Brand</th>
+                                        <th>Nama Brand</th>
+                                        <th>Jenis Brand</th>
                                         <th>Jenis</th>
                                         <th>Tgl Inventaris</th>
                                         <th>Lokasi</th>
@@ -62,9 +63,8 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->idap }}</td>
-                                            <td>
-                                                {{ $item->brand->nama_brand }} {{ $item->brand->tipe_brand }}
-                                            </td>
+                                            <td>{{ $item->brand->nama_brand }}</td>
+                                            <td>{{ $item->brand->tipe_brand }}</td>
                                             <td>Access Point</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
@@ -80,10 +80,8 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->idhardware }}</td>
-                                            <td>
-                                                {{ $item->brand->nama_brand }},
-                                                {{ $item->brand->tipe_brand }}
-                                            </td>
+                                            <td>{{ $item->brand->nama_brand }}</td>
+                                            <td>{{ $item->brand->tipe_brand }}</td>
                                             <td>{{ $item->jenis_hardware }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
@@ -99,10 +97,8 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->idswitch }}</td>
-                                            <td>
-                                                {{ $item->brand->nama_brand }},
-                                                {{ $item->brand->tipe_brand }}
-                                            </td>
+                                            <td>{{ $item->brand->nama_brand }}</td>
+                                            <td>{{ $item->brand->tipe_brand }}</td>
                                             <td>Switch</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
