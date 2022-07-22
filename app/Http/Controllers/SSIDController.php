@@ -17,10 +17,12 @@ class SSIDController extends Controller
     {
         $items = SSID::with(['lokasi'])->get();
         $list_lokasi = Lokasi::all();
+        $list_jenis = ['Intranet', 'Internet', 'Intranet dan Internet'];
 
         return view('pages.ssid.index', [
             'items' => $items,
             'list_lokasi' => $list_lokasi,
+            'list_jenis' => $list_jenis,
         ]);
     }
 

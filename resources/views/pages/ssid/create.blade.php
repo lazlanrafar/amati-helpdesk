@@ -25,12 +25,12 @@
                     </div>
                     <div class="form-group">
                         <label for="jenis-ssid">Jenis SSID</label>
-                        <input type="text" class="form-control" id="jenis-ssid" placeholder="Enter Jenis SSID"
-                            name="jenis_ssid" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="keterangan">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="3" required></textarea>
+                        <select class="form-control" name="jenis_ssid" id="jenis-ssid" required>
+                            <option value="">-- Pilih Jenis SSID --</option>
+                            @foreach ($list_jenis as $item)
+                                <option value="{{ $item }}">{{ $item }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Lokasi</label>
@@ -45,6 +45,10 @@
                                 </option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="keterangan">Keterangan</label>
+                        <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

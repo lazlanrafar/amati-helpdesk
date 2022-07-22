@@ -27,28 +27,29 @@
                     </div>
                     <div class="form-group">
                         <label for="jenis-ssid">Jenis SSID</label>
-                        <input type="text" class="form-control" id="jenis-ssid" placeholder="Enter Jenis SSID"
-                            value="{{ $item->jenis_ssid }}" name="jenis_ssid" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="keterangan">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="3" required>{{ $item->keterangan }}</textarea>
+                        <select class="form-control" name="jenis_ssid" id="jenis-ssid" required>
+                            @foreach ($list_jenis as $jenis)
+                                <option value="{{ $jenis }}" {{ $jenis == $item->jenis_ssid ? 'selected' : '' }}>
+                                    {{ $jenis }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Lokasi</label>
                         <select class="form-control" id="lokasi" name="idlok" required>
-                            <option selected value="{{ $item->idlok }}">{{ $item->nama_lokasi }},
-                                {{ $item->unit }},
-                                {{ $item->sublokasi }}</option>
                             @foreach ($list_lokasi as $lokasi)
-                                @if ($lokasi->id != $item->idlok)
-                                    <option value="{{ $lokasi->id }}">
-                                        {{ $lokasi->nama_lokasi }}, {{ $lokasi->unit }},
-                                        {{ $lokasi->sublokasi }}
-                                    </option>
-                                @endif
+                                <option value="{{ $lokasi->id }}"
+                                    {{ $lokasi->id == $item->idlok ? 'selected' : '' }}>
+                                    {{ $lokasi->nama_lokasi }}, {{ $lokasi->unit }},
+                                    {{ $lokasi->sublokasi }}
+                                </option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="keterangan">Keterangan</label>
+                        <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="3" required>{{ $item->keterangan }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

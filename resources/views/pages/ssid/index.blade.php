@@ -37,7 +37,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    @forelse ($items as $item)
+                                    @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->nama_ssid }}</td>
@@ -92,13 +92,8 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                    @include('pages.ssid.update') @empty
-                                        <tr>
-                                            <td colspan="7" class="text-center">
-                                                Data Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                        @include('pages.ssid.update')
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
