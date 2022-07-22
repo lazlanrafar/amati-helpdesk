@@ -26,7 +26,7 @@
                     download="{{ $filename }}" class="btn btn-primary" target="_BLANK">
                     Download
                 </a> --}}
-                <button onclick="handleDownload()" class="btn btn-primary">
+                <button onclick="handleDownload()" class="btn btn-warning">
                     Download
                 </button>
 
