@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Amati - Unit Management</title>
 
+    <link rel="icon" href="{{ url('/bright.png') }}" type="image/icon">
 
 
     <!-- Google Font: Source Sans Pro -->

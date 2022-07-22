@@ -28,52 +28,8 @@
                     </div>
                     <div class="form-group">
                         <label>Unit</label>
-                        <select class="form-control" name="unit" required>
-                            <option disabled style="font-weight: 700">KANTOR KORPORAT</option>
-                            @foreach ($list_unit_kantor_korporat as $unit)
-                                @if ($item->unit == $unit)
-                                    <option selected value="{{ $unit }}">{{ $unit }}</option>
-                                @else
-                                    <option value="{{ $unit }}">{{ $unit }}</option>
-                                @endif
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS SERVICE</option>
-                            @foreach ($list_unit_bisnis_service as $unit)
-                                @if ($item->unit == $unit)
-                                    <option selected value="{{ $unit }}">{{ $unit }}</option>
-                                @else
-                                    <option value="{{ $unit }}">{{ $unit }}</option>
-                                @endif
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS INSFRASTRUKTUR</option>
-                            @foreach ($list_unit_bisnis_infrastruktur as $unit)
-                                @if ($item->unit == $unit)
-                                    <option selected value="{{ $unit }}">{{ $unit }}</option>
-                                @else
-                                    <option value="{{ $unit }}">{{ $unit }}</option>
-                                @endif
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS GTRANS</option>
-                            @foreach ($list_unit_bisnis_gtrans as $unit)
-                                @if ($item->unit == $unit)
-                                    <option selected value="{{ $unit }}">{{ $unit }}</option>
-                                @else
-                                    <option value="{{ $unit }}">{{ $unit }}</option>
-                                @endif
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS BES</option>
-                            @foreach ($list_unit_bisnis_bes as $unit)
-                                @if ($item->unit == $unit)
-                                    <option selected value="{{ $unit }}">{{ $unit }}</option>
-                                @else
-                                    <option value="{{ $unit }}">{{ $unit }}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" id="unit" placeholder="Enter unit"
+                            name="unit" value="{{ $item->unit }}" required />
                     </div>
                     <div class="form-group">
                         <label for="sublokasi">Sublokasi</label>

@@ -26,33 +26,6 @@
                         <label>Unit</label>
                         <input type="text" class="form-control" id="unit" placeholder="Enter unit"
                             name="unit" required />
-                        {{-- <select class="form-control" name="unit" required>
-                            <option selected value="">-- Pilih Unit --</option>
-                            <option disabled style="font-weight: 700">KANTOR KORPORAT</option>
-                            @foreach ($list_unit_kantor_korporat as $unit)
-                                <option value="{{ $unit }}">{{ $unit }}</option>
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS SERVICE</option>
-                            @foreach ($list_unit_bisnis_service as $unit)
-                                <option value="{{ $unit }}">{{ $unit }}</option>
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS INSFRASTRUKTUR</option>
-                            @foreach ($list_unit_bisnis_infrastruktur as $unit)
-                                <option value="{{ $unit }}">{{ $unit }}</option>
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS GTRANS</option>
-                            @foreach ($list_unit_bisnis_gtrans as $unit)
-                                <option value="{{ $unit }}">{{ $unit }}</option>
-                            @endforeach
-                            <option disabled>==========================</option>
-                            <option disabled style="font-weight: 700">UNIT BISNIS BES</option>
-                            @foreach ($list_unit_bisnis_bes as $unit)
-                                <option value="{{ $unit }}">{{ $unit }}</option>
-                            @endforeach
-                        </select> --}}
                     </div>
 
                     <div class="form-group">
@@ -66,7 +39,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-warning">
                         Simpan
                     </button>
                 </div>
