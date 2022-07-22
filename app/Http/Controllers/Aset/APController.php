@@ -20,7 +20,7 @@ class APController extends Controller
     {
         $items = AccessPoint::with('brand', 'lokasi')->get();
 
-        $list_brand = Brand::where('jenis_brand', 'Jaringan')->get();
+        $list_brand = Brand::where('jenis_brand', 'Access Point')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Management', 'Non Management'];
         $list_frekuensi = ['2.4 GHz', '5 GHz', '2.4 GHz dan 5 GHz'];

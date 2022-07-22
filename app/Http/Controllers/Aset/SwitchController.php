@@ -20,7 +20,7 @@ class SwitchController extends Controller
     {
         $items = SwitchHub::with('brand', 'lokasi')->get();
 
-        $list_brand = Brand::where('jenis_brand', 'Jaringan')->get();
+        $list_brand = Brand::where('jenis_brand', 'Switch')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Management', 'Non Management'];
         $list_jenis_port = ['Fast Ethernet', 'Gigabit Ethernet'];
