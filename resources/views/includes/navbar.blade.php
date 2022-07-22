@@ -10,8 +10,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="https://ui-avatars.com/api/?name={{ request()->session()->get('user')['nama'] }}"
-                    class="user-image
+                <img src="{{ url('/user.png') }}" class="user-image
                 img-circle" alt="User Image">
                 <span class="hidden-xs" style="color:black">{{ request()->session()->get('user')['nama'] }}</span>
             </a>
