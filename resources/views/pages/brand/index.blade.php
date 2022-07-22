@@ -76,6 +76,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
+                                        @include('pages.brand.update')
                                     @endforeach
                                 </tbody>
                             </table>
