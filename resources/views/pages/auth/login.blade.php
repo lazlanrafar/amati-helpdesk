@@ -1,13 +1,15 @@
 @extends('layouts.auth') @section('content')
     <div class="login-box">
-        <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
-        </div>
         <!-- /.login-logo -->
-        <div class="card">
+        @include('includes.error-card')
+        <div class="card mt-3">
             <div class="card-body login-card-body">
+                <div class="login-logo">
+                    <a href="/">
+                        <img src="{{ url('/bright.png') }}" alt="Logo Bright" width="100">
+                    </a>
+                </div>
                 <p class="login-box-msg">Sign in to start your session</p>
-
                 <form action="/login" method="post">
                     @csrf
                     <div class="input-group mb-3">
@@ -29,7 +31,7 @@
                     <div class="row justify-content-end">
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-warning btn-block">Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -38,5 +40,6 @@
             </div>
             <!-- /.login-card-body -->
         </div>
+
     </div>
 @endsection
