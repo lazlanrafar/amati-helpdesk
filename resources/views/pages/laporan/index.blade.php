@@ -63,8 +63,7 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->idap }}</td>
                                             <td>
-                                                {{ $item->brand->nama_brand }},
-                                                {{ $item->brand->tipe_brand }}
+                                                {{ $item->brand->nama_brand }} {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>Access Point</td>
                                             <td>{{ $item->tgl_inventaris }}</td>

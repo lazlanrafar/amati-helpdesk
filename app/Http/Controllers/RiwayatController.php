@@ -21,12 +21,14 @@ class RiwayatController extends Controller
         $list_ap = AccessPoint::with('brand', 'lokasi')->get();
         $list_hardware = Hardware::with('brand', 'lokasi')->get();
         $list_switch = SwitchHub::with('brand', 'lokasi')->get();
+        $list_jenis_history = ['Perbaikan', 'Pemeliharaan'];
 
         return view('pages.riwayat.index', [
             'items' => $items,
             'list_ap' => $list_ap,
             'list_hardware' => $list_hardware,
             'list_switch' => $list_switch,
+            'list_jenis_history' => $list_jenis_history,
         ]);
     }
 
@@ -40,6 +42,14 @@ class RiwayatController extends Controller
     {
         $data = $request->all();
         $data['tanggal'] = date('Y-m-d', strtotime($data['tanggal']));
+        if($data['jenis_history'] == 'Perbaikan'){
+            if($data['kerusakan'] == ''){
+                return redirect()->route('riwayat.index')->with('error', 'Jika status historynya perbaikan, maka kerusakan harus diisi');
+            }
+        }
+        if($data['kerusakan'] == ''){
+            $data['kerusakan'] = '-';
+        }
         History::create($data);
         return redirect()->route('riwayat.index')->with('success', 'Data berhasil ditambahkan');
     }

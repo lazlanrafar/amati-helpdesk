@@ -15,9 +15,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="tanggal">Tanggal</label>
+                        <input type="date" class="form-control" id="tanggal" placeholder="Enter Tanggal"
+                            name="tanggal" required />
+                    </div>
+                    <div class="form-group">
                         <label for="jenis_history">Jenis History</label>
-                        <input type="text" class="form-control" id="jenis_history" placeholder="Enter Jenis History"
-                            name="jenis_history" required />
+                        <select name="jenis_history" id="jenis_history" required class="form-control">
+                            <option value="" selected>-- Pilih Jenis History --</option>
+                            @foreach ($list_jenis_history as $item)
+                                <option value="{{ $item }}">{{ $item }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="akses-select">Perangkat</label>
@@ -55,18 +64,14 @@
                     <div class="form-group">
                         <label for="kerusakan">Kerusakan</label>
                         <input type="text" class="form-control" id="kerusakan" placeholder="Enter Kerusakan"
-                            name="kerusakan" required />
+                            name="kerusakan" />
                     </div>
                     <div class="form-group">
                         <label for="perbaikan">Perbaikan</label>
                         <input type="text" class="form-control" id="perbaikan" placeholder="Enter Perbaikan"
                             name="perbaikan" required />
                     </div>
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal</label>
-                        <input type="date" class="form-control" id="tanggal" placeholder="Enter Tanggal"
-                            name="tanggal" required />
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">

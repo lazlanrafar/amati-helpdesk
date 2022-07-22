@@ -16,9 +16,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="tanggal">Tanggal</label>
+                        <input type="date" class="form-control" id="tanggal" placeholder="Enter Tanggal"
+                            name="tanggal" value="{{ $item->tanggal }}" required />
+                    </div>
+                    <div class="form-group">
                         <label for="jenis_history">Jenis History</label>
-                        <input type="text" class="form-control" id="jenis_history" placeholder="Enter Jenis History"
-                            name="jenis_history" value="{{ $item->jenis_history }}" required />
+                        <select name="jenis_history" id="jenis_history" required class="form-control">
+                            @foreach ($list_jenis_history as $jenis)
+                                <option value="{{ $jenis }}"
+                                    {{ $jenis == $item->jenis_history ? 'selected' : '' }}>
+                                    {{ $jenis }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="akses-select">Perangkat</label>
@@ -26,7 +37,7 @@
                             <option selected value="">-- Pilih perangkat --</option>
                             <option disabled style="font-weight: 700">HARDWARE</option>
                             @foreach ($list_hardware as $h)
-                                @if ($h->id == $item->idprkt)
+                                @if (strval($h->idhardware) == strval($item->idprkt))
                                     <option selected value="{{ $h->idhardware }}">
                                         {{ $h->jenis_hardware }},
                                         {{ $h->brand->nama_brand }}
@@ -42,7 +53,7 @@
                             @endforeach
                             <option disabled style="font-weight: 700">ACCESS POINT</option>
                             @foreach ($list_ap as $ap)
-                                @if ($ap->id == $item->idprkt)
+                                @if ($ap->idap == $item->idprkt)
                                     <option selected value="{{ $ap->idap }}">
                                         {{ $ap->nama_ap }},
                                         {{ $ap->brand->nama_brand }}
@@ -59,7 +70,7 @@
                             @endforeach
                             <option disabled style="font-weight: 700">SWITCH</option>
                             @foreach ($list_switch as $s)
-                                @if ($s->id == $item->idprkt)
+                                @if ($s->idswitch == $item->idprkt)
                                     <option selected value="{{ $s->idswitch }}">
                                         {{ $s->nama_switch }},
                                         {{ $s->brand->nama_brand }}
@@ -87,11 +98,7 @@
                         <input type="text" class="form-control" id="perbaikan" placeholder="Enter Perbaikan"
                             name="perbaikan" value="{{ $item->perbaikan }}" required />
                     </div>
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal</label>
-                        <input type="date" class="form-control" id="tanggal" placeholder="Enter Tanggal"
-                            name="tanggal" value="{{ $item->tanggal }}" required />
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
