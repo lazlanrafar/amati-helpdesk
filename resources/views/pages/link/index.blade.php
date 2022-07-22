@@ -26,12 +26,14 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Switch</th>
-                                        <th>UID</th>
+                                        <th>Brand</th>
+                                        <th>Lokasi</th>
                                         <th>Port</th>
                                         <th>Status</th>
                                         <th>Arah</th>
-                                        <th>Keterangan</th>
                                         <th>Last Update</th>
+                                        <th>User</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -41,12 +43,19 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->switch->idswitch }}</td>
-                                            <td>{{ $item->user->nama }}</td>
+                                            <td>{{ $item->switch->brand->nama_brand }}
+                                                {{ $item->switch->brand->tipe_brand }}</td>
+                                            <td>
+                                                {{ $item->switch->lokasi->nama_lokasi }},
+                                                {{ $item->switch->lokasi->unit }},
+                                                {{ $item->switch->lokasi->sublokasi }}
+                                            </td>
                                             <td>{{ $item->port }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>{{ $item->arah }}</td>
-                                            <td>{{ $item->keterangan }}</td>
                                             <td>{{ $item->updated_at }}</td>
+                                            <td>{{ $item->user->email }}</td>
+                                            <td>{{ $item->keterangan }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('link.destroy', $item->id) }}" method="POST"

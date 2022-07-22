@@ -16,13 +16,14 @@ class LinkController extends Controller
     public function index()
     {
         $items = Link::with('switch', 'user')->get();
-        $list_switch = SwitchHub::join('brands', 'brands.id', '=', 'switch_hubs.idbrand')
-        ->select('switch_hubs.*', 'brands.nama_brand', 'brands.tipe_brand')
-        ->get();
+        $list_switch = SwitchHub::with('brand', 'lokasi')->get();
+
+        $list_status = ['Uplink', 'Downlink'];
         
         return view('pages.link.index', [
             "items" => $items,
-            "list_switch" => $list_switch
+            "list_switch" => $list_switch,
+            "list_status" => $list_status,
         ]);
     }
 

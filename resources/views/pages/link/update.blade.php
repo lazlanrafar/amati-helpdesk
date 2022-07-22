@@ -22,19 +22,19 @@
                             @foreach ($list_switch as $switch)
                                 @if ($switch->id == $item->idswitch)
                                     <option value="{{ $switch->id }}" selected>
-                                        {{ $switch->jenis_switch }},
-                                        {{ $switch->nama_brand }}
-                                        {{ $switch->tipe_brand }},
-                                        {{ $switch->jumlah_port }}
-                                        {{ $switch->jenis_port }}
+                                        {{ $switch->brand->nama_brand }}
+                                        {{ $switch->brand->tipe_brand }},
+                                        {{ $switch->lokasi->nama_lokasi }} -
+                                        {{ $switch->lokasi->unit }} -
+                                        {{ $switch->lokasi->sublokasi }}
                                     </option>
                                 @else
                                     <option value="{{ $switch->id }}">
-                                        {{ $switch->jenis_switch }},
-                                        {{ $switch->nama_brand }}
-                                        {{ $switch->tipe_brand }},
-                                        {{ $switch->jumlah_port }}
-                                        {{ $switch->jenis_port }}
+                                        {{ $switch->brand->nama_brand }}
+                                        {{ $switch->brand->tipe_brand }},
+                                        {{ $switch->lokasi->nama_lokasi }} -
+                                        {{ $switch->lokasi->unit }} -
+                                        {{ $switch->lokasi->sublokasi }}
                                     </option>
                                 @endif
                             @endforeach
@@ -47,8 +47,15 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" class="form-control" id="status" placeholder="Enter Status"
-                            name="status" required value="{{ $item->status }}" />
+                        <select name="status" id="status" class="form-control" required>
+                            @foreach ($list_status as $jenis)
+                                @if ($jenis == $item->status)
+                                    <option value="{{ $jenis }}" selected>{{ $jenis }}</option>
+                                @else
+                                    <option value="{{ $jenis }}">{{ $jenis }}</option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="arah">Arah</label>

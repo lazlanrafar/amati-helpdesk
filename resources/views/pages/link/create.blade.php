@@ -20,11 +20,11 @@
                             <option selected value="">-- pilih Switch --</option>
                             @foreach ($list_switch as $switch)
                                 <option value="{{ $switch->id }}">
-                                    {{ $switch->jenis_switch }},
-                                    {{ $switch->nama_brand }}
-                                    {{ $switch->tipe_brand }},
-                                    {{ $switch->jumlah_port }}
-                                    {{ $switch->jenis_port }}
+                                    {{ $switch->brand->nama_brand }}
+                                    {{ $switch->brand->tipe_brand }},
+                                    {{ $switch->lokasi->nama_lokasi }} -
+                                    {{ $switch->lokasi->unit }} -
+                                    {{ $switch->lokasi->sublokasi }}
                                 </option>
                             @endforeach
                         </select>
@@ -36,8 +36,12 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" class="form-control" id="status" placeholder="Enter Status"
-                            name="status" required />
+                        <select name="status" id="status" class="form-control" required>
+                            <option value="" selected>-- Pilih Status --</option>
+                            @foreach ($list_status as $jenis)
+                                <option value="{{ $jenis }}">{{ $jenis }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="arah">Arah</label>
