@@ -97,7 +97,7 @@
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 <?php
-                                                $dataqrcode = $item->idhardware . '-' . $item->jenis_hardware . '-' . $item->brand->nama_brand . '-' . $item->brand->tipe_brand . '-' . $item->koneksi . '-' . $item->computer_name . '-' . $item->ipaddress . '-' . $item->sharing . '-' . $item->tgl_inventaris . '-' . $item->lokasi->nama_lokasi . '-' . $item->lokasi->unit . '-' . $item->lokasi->sublokasi . '-' . $item->keterangan;
+                                                $dataqrcode = $item->idhardware . ', Jenis Hardware, ' . $item->brand->nama_brand . ' ' . $item->brand->tipe_brand . ', Tanggal Inventaris : ' . $item->tgl_inventaris . ', Lokasi :' . $item->lokasi->nama_lokasi . '/' . $item->lokasi->unit . '/' . $item->lokasi->sublokasi . ', Keterangan : ' . $item->keterangan;
                                                 ?>
                                                 <a type="button" class="btn btn-primary" data-toggle="modal"
                                                     data-target="#modalQrCode{{ $item->id }}">

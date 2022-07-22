@@ -88,7 +88,7 @@
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 <?php
-                                                $dataqrcode = $item->idswitch . '-' . $item->jenis_switch . '-' . $item->brand->nama_brand . '-' . $item->brand->tipe_brand . '-' . $item->jumlah_port . '-' . $item->jenis_port . '-' . $item->tgl_inventaris . '-' . $item->lokasi->nama_lokasi . '-' . $item->lokasi->unit . '-' . $item->lokasi->sublokasi . '-' . $item->keterangan;
+                                                $dataqrcode = $item->idswitch . ', Jenis Switch, ' . $item->brand->nama_brand . ' ' . $item->brand->tipe_brand . ', Tanggal Inventaris : ' . $item->tgl_inventaris . ', Lokasi :' . $item->lokasi->nama_lokasi . '/' . $item->lokasi->unit . '/' . $item->lokasi->sublokasi . ', Keterangan : ' . $item->keterangan;
                                                 ?>
                                                 <a type="button" class="btn btn-primary" data-toggle="modal"
                                                     data-target="#modalQrCode{{ $item->id }}">

@@ -88,7 +88,7 @@
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 <?php
-                                                $dataqrcode = $item->idap . '- Jenis AP : ' . $item->jenis_ap . '-' . $item->brand->nama_brand . $item->brand->tipe_brand . '- Port : ' . $item->jumlah_port . $item->frekuensi . '- Tanggal Inventaris :' . $item->tgl_inventaris . '- Lokasi :' . $item->lokasi->nama_lokasi . ',' . $item->lokasi->unit . ',' . $item->lokasi->sublokasi . '- Keterangan :' . $item->keterangan;
+                                                $dataqrcode = $item->idap . ', Jenis Access Point, ' . $item->brand->nama_brand . ' ' . $item->brand->tipe_brand . ', Tanggal Inventaris :' . $item->tgl_inventaris . ', Lokasi :' . $item->lokasi->nama_lokasi . '/' . $item->lokasi->unit . '/' . $item->lokasi->sublokasi . ', Keterangan :' . $item->keterangan;
                                                 ?>
                                                 <a type="button" class="btn btn-primary" data-toggle="modal"
                                                     data-target="#modalQrCode{{ $item->id }}">
