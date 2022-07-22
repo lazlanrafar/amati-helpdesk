@@ -57,4 +57,24 @@ class LaporanController extends Controller
             'end_date' => $request->end_date
         ])->with('success', 'Data berhasil ditampilkan dari tanggal '.$request->from_date.' s/d '.$request->end_date);
     }
+
+    public function printqrcode($from_date, $end_date){
+        if($from_date == '-' || $end_date == '-'){
+            $list_ap = AccessPoint::with('brand', 'lokasi')->get();
+            $list_hardware = Hardware::with('brand', 'lokasi')->get();
+            $list_switch = SwitchHub::with('brand', 'lokasi')->get();
+        }else{
+            $list_ap = AccessPoint::with('brand', 'lokasi')->where('tgl_inventaris', '>=', $from_date)->where('tgl_inventaris', '<=', $end_date)->get();
+            $list_hardware = Hardware::with('brand', 'lokasi')->where('tgl_inventaris', '>=', $from_date)->where('tgl_inventaris', '<=', $end_date)->get();
+            $list_switch = SwitchHub::with('brand', 'lokasi')->where('tgl_inventaris', '>=', $from_date)->where('tgl_inventaris', '<=', $end_date)->get();
+        }
+
+        return view('pages.laporan.print-qrcode', [
+            'list_ap' => $list_ap,
+            'list_hardware' => $list_hardware,
+            'list_switch' => $list_switch,
+            'from_date' => $from_date,
+            'end_date' => $end_date
+        ]);
+    }
 }

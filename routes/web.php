@@ -52,3 +52,4 @@ Route::resource('/user', UserController::class)->middleware('auth');
 
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
 Route::post('/laporan', [LaporanController::class, 'filter'])->middleware('auth');
+Route::get('/laporan/print-qrcode/{from_date}/{end_date}', [LaporanController::class, 'printqrcode'])->middleware('auth');

@@ -6,6 +6,13 @@
                 <div class="col-sm-6">
                     <h1>Laporan</h1>
                 </div>
+                <div class="col-sm-6">
+                    <a href="/laporan/print-qrcode/{{ $from_date == '' ? '-' : $from_date }}/{{ $end_date == '' ? '-' : $end_date }}"
+                        target="_BLANK" class="btn btn-primary float-sm-right">
+                        <i class="fas fa-print"></i>
+                        Print QRCode
+                    </a>
+                </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -19,7 +26,7 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="/laporan" method="POST">
+                            <form action="/laporan" method="POST" class="mb-5">
                                 @csrf
                                 <div class="row align-items-end justify-content-center justify-content-md-start mb-md-3">
                                     <div class="col-12 col-md-4 col-lg-3">
@@ -44,7 +51,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <table id="defaultTable" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
