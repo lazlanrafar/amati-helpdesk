@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
                             @include('pages.user.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
@@ -28,7 +28,6 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
-                                        <th>UID</th>
                                         <th>Email</th>
                                         <th>Akses</th>
                                         <th>Action</th>
@@ -41,46 +40,37 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->jabatan }}</td>
-                                            <td>{{ $item->uid }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->akses }}</td>
                                             <td>
-                                                <a type="button" class="btn btn-danger" data-toggle="modal"
-                                                    data-target="#dialogDelete{{ $item->id }}">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                                <div class="modal fade" id="dialogDelete{{ $item->id }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="dialogDelete{{ $item->id }}Label"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Konfirmasi Delete User :
-                                                                {{ $item->nama }}
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">
-                                                                    Close
-                                                                </button>
-                                                                <form action="{{ route('user.destroy', $item->id) }}"
-                                                                    method="POST" class="d-inline">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        Konfirmasi
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <form id="formDelete{{ $item->id }}"
+                                                    action="{{ route('user.destroy', $item->id) }}" method="POST"
+                                                    class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a type="button" class="btn btn-danger"
+                                                        onclick="handleDelete({{ $item->id }})">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </form>
+
+                                                <script>
+                                                    function handleDelete(id) {
+                                                        Swal.fire({
+                                                            title: 'Apakah kamu yakin?',
+                                                            text: "kamu akan menghapus data ini!",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Ya, hapus!'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                document.getElementById('formDelete' + id).submit();
+                                                            }
+                                                        })
+                                                    }
+                                                </script>
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
                                                     <i class="fa fa-edit"></i>
