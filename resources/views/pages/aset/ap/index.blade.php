@@ -42,8 +42,7 @@
                                             <td>{{ $item->idap }}</td>
                                             <td>{{ $item->jenis_ap }}</td>
                                             <td>
-                                                {{ $item->brand->nama_brand }},
-                                                {{ $item->brand->tipe_brand }}
+                                                {{ $item->brand->nama_brand }} {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->jumlah_port }}</td>
                                             <td>{{ $item->frekuensi }}</td>

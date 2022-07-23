@@ -20,9 +20,9 @@
                             <option selected value="">-- pilih Switch --</option>
                             @foreach ($list_switch as $switch)
                                 <option value="{{ $switch->id }}">
+                                    {{ $switch->idswitch }},
                                     {{ $switch->brand->nama_brand }}
                                     {{ $switch->brand->tipe_brand }},
-                                    {{ $switch->lokasi->nama_lokasi }} -
                                     {{ $switch->lokasi->unit }} -
                                     {{ $switch->lokasi->sublokasi }}
                                 </option>

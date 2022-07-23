@@ -43,7 +43,7 @@
                                             <td>{{ $item->idhardware }}</td>
                                             <td>{{ $item->jenis_hardware }}</td>
                                             <td>
-                                                {{ $item->brand->nama_brand }}, {{ $item->brand->tipe_brand }}
+                                                {{ $item->brand->nama_brand }} {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->koneksi }}</td>
                                             <td>

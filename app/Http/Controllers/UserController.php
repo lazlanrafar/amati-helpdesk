@@ -30,6 +30,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
+        if ( !preg_match("#[0-9]+#", $request['password']) ) {
+            return redirect()->route('user.index')->with('error', 'Password harus mengandung huruf besar, huruf kecil, angka dan simbol.');
+        }
+    
+        if ( !preg_match("#[a-z]+#", $request['password']) ) {
+            return redirect()->route('user.index')->with('error', 'Password harus mengandung huruf besar, huruf kecil, angka dan simbol.');
+        } 
+    
+        if ( !preg_match("#[A-Z]+#", $request['password']) ) {
+            return redirect()->route('user.index')->with('error', 'Password harus mengandung huruf besar, huruf kecil, angka dan simbol.');
+        }
+    
+        if ( !preg_match("/[\'^£$%&*()}{@#~?><>,|=_+!-]/", $request['password']) ) {
+            return redirect()->route('user.index')->with('error', 'Password harus mengandung huruf besar, huruf kecil, angka dan simbol.');
+        }
+        
         User::create([
             'nama' => $request['nama'],
             'email' => $request['email'],
@@ -39,7 +56,7 @@ class UserController extends Controller
             'akses' => $request['akses'],
         ]);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -48,9 +65,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function resetpass($id)
     {
-        //
+        $defaultpass = Hash::make('init123#');
+        $user = User::find($id);
+        $user->password = $defaultpass;
+        $user->save();
+        return redirect()->route('user.index')->with('success', 'Password berhasil di reset');
     }
 
     /**
@@ -71,7 +92,7 @@ class UserController extends Controller
 
         $item = User::findOrFail($id);
         $item->update($data);
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -85,6 +106,6 @@ class UserController extends Controller
         $item = User::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'Data berhasil dihapus');
     }
 }

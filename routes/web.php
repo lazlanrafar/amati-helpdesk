@@ -50,6 +50,8 @@ Route::resource('/lokasi', LokasiController::class)->middleware('auth');
 Route::resource('/brand', BrandController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');
 
+Route::post('/user/resetpass/{id}', [UserController::class, 'resetpass'])->middleware('auth');
+
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
 Route::post('/laporan', [LaporanController::class, 'filter'])->middleware('auth');
 Route::get('/laporan/print-qrcode/{from_date}/{end_date}', [LaporanController::class, 'printqrcode'])->middleware('auth');

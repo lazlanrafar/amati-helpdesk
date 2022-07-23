@@ -23,7 +23,7 @@ class SwitchController extends Controller
         $list_brand = Brand::where('jenis_brand', 'Switch')->get();
         $list_lokasi = Lokasi::all();
         $list_jenis = ['Management', 'Non Management'];
-        $list_jenis_port = ['Fast Ethernet', 'Gigabit Ethernet'];
+        $list_jenis_port = ['Fast Ethernet', 'Gigabit Ethernet', 'Fast & Gigabit Ethernet'];
 
         return view('pages.aset.switch.index', [
             'items' => $items,

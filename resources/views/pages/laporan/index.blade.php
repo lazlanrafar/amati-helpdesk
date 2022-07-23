@@ -58,8 +58,8 @@
                                         <th>Aset</th>
                                         <th>Nama Brand</th>
                                         <th>Jenis Brand</th>
-                                        <th>Jenis</th>
-                                        <th>Tgl Inventaris</th>
+                                        <th>Jenis Aset</th>
+                                        <th>Tanggal Inventaris</th>
                                         <th>Lokasi</th>
                                         <th>Keterangan</th>
                                     </tr>
@@ -75,9 +75,7 @@
                                             <td>Access Point</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->lokasi->nama_lokasi }},
-                                                {{ $item->lokasi->unit }},
-                                                {{ $item->lokasi->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }}, {{ $item->lokasi->unit }}, {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                         </tr>
@@ -92,9 +90,7 @@
                                             <td>{{ $item->jenis_hardware }}</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->lokasi->nama_lokasi }},
-                                                {{ $item->lokasi->unit }},
-                                                {{ $item->lokasi->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }}, {{ $item->lokasi->unit }}, {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                         </tr>
@@ -109,9 +105,7 @@
                                             <td>Switch</td>
                                             <td>{{ $item->tgl_inventaris }}</td>
                                             <td>
-                                                {{ $item->lokasi->nama_lokasi }},
-                                                {{ $item->lokasi->unit }},
-                                                {{ $item->lokasi->sublokasi }}
+                                                {{ $item->lokasi->nama_lokasi }}, {{ $item->lokasi->unit }}, {{ $item->lokasi->sublokasi }}
                                             </td>
                                             <td>{{ $item->keterangan }}</td>
                                         </tr>

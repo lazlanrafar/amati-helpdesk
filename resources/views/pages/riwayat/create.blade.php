@@ -35,39 +35,42 @@
                             <option disabled style="font-weight: 700">HARDWARE</option>
                             @foreach ($list_hardware as $h)
                                 <option value="{{ $h->idhardware }}">
-                                    {{ $h->jenis_hardware }},
+                                    {{ $h->idhardware }},
                                     {{ $h->brand->nama_brand }}
-                                    {{ $h->brand->tipe_brand }}
+                                    {{ $h->brand->tipe_brand }},
+                                    {{ $h->lokasi->unit }} -
+                                    {{ $h->lokasi->sublokasi }}
                                 </option>
                             @endforeach
                             <option disabled style="font-weight: 700">ACCESS POINT</option>
                             @foreach ($list_ap as $ap)
                                 <option value="{{ $ap->idap }}">
-                                    {{ $ap->jenis_ap }},
+                                    {{ $ap->idap }},
                                     {{ $ap->brand->nama_brand }}
                                     {{ $ap->brand->tipe_brand }},
-                                    {{ $ap->frekuensi }}
+                                    {{ $ap->lokasi->unit }} -
+                                    {{ $ap->lokasi->sublokasi }}
                                 </option>
                             @endforeach
                             <option disabled style="font-weight: 700">SWITCH</option>
                             @foreach ($list_switch as $s)
                                 <option value="{{ $s->idswitch }}">
-                                    {{ $s->jenis_switch }},
+                                    {{ $s->idswitch }},
                                     {{ $s->brand->nama_brand }}
                                     {{ $s->brand->tipe_brand }},
-                                    {{ $s->jumlah_port }}
-                                    {{ $s->jenis_port }}
+                                    {{ $s->lokasi->unit }} -
+                                    {{ $s->lokasi->sublokasi }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="kerusakan">Kerusakan</label>
-                        <textarea type="text" class="form-control" id="kerusakan" placeholder="Enter Kerusakan" name="kerusakan"></textarea>
+                        <label for="kerusakan">Isu</label>
+                        <textarea type="text" required class="form-control" id="kerusakan" placeholder="Enter Isu" name="kerusakan"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="perbaikan">Perbaikan</label>
-                        <textarea type="text" class="form-control" id="perbaikan" placeholder="Enter Perbaikan" name="perbaikan" required></textarea>
+                        <label for="perbaikan">Troubleshoot</label>
+                        <textarea type="text" class="form-control" id="perbaikan" placeholder="Enter Troubleshoot" name="perbaikan" required></textarea>
                     </div>
 
                 </div>

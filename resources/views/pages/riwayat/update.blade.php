@@ -39,15 +39,19 @@
                             @foreach ($list_hardware as $h)
                                 @if (strval($h->idhardware) == strval($item->idprkt))
                                     <option selected value="{{ $h->idhardware }}">
+                                        {{ $h->idhardware }},
                                         {{ $h->brand->nama_brand }}
                                         {{ $h->brand->tipe_brand }},
-                                        {{ $h->jenis_hardware }}
+                                        {{ $h->lokasi->unit }} -
+                                        {{ $h->lokasi->sublokasi }}
                                     </option>
                                 @else
                                     <option value="{{ $h->idhardware }}">
+                                        {{ $h->idhardware }},
                                         {{ $h->brand->nama_brand }}
                                         {{ $h->brand->tipe_brand }},
-                                        {{ $h->jenis_hardware }}
+                                        {{ $h->lokasi->unit }} -
+                                        {{ $h->lokasi->sublokasi }}
                                     </option>
                                 @endif
                             @endforeach
@@ -55,16 +59,19 @@
                             @foreach ($list_ap as $ap)
                                 @if ($ap->idap == $item->idprkt)
                                     <option selected value="{{ $ap->idap }}">
+                                        {{ $ap->idap }},
                                         {{ $ap->brand->nama_brand }}
                                         {{ $ap->brand->tipe_brand }},
-                                        {{ $ap->jenis_ap }}
+                                        {{ $ap->lokasi->unit }} -
+                                        {{ $ap->lokasi->sublokasi }}
                                     </option>
                                 @else
                                     <option value="{{ $ap->idap }}">
+                                        {{ $ap->idap }},
                                         {{ $ap->brand->nama_brand }}
                                         {{ $ap->brand->tipe_brand }},
-                                        {{ $ap->jenis_ap }},
-                                        {{ $ap->frekuensi }}
+                                        {{ $ap->lokasi->unit }} -
+                                        {{ $ap->lokasi->sublokasi }}
                                     </option>
                                 @endif
                             @endforeach
@@ -72,29 +79,31 @@
                             @foreach ($list_switch as $s)
                                 @if ($s->idswitch == $item->idprkt)
                                     <option selected value="{{ $s->idswitch }}">
+                                        {{ $s->idswitch }},
                                         {{ $s->brand->nama_brand }}
                                         {{ $s->brand->tipe_brand }},
-                                        {{ $s->jenis_switch }}
+                                        {{ $s->lokasi->unit }} -
+                                        {{ $s->lokasi->sublokasi }}
                                     </option>
                                 @else
                                     <option value="{{ $s->idswitch }}">
+                                        {{ $s->idswitch }},
                                         {{ $s->brand->nama_brand }}
                                         {{ $s->brand->tipe_brand }},
-                                        {{ $s->jenis_switch }},
-                                        {{ $s->jumlah_port }}
-                                        {{ $s->jenis_port }}
+                                        {{ $s->lokasi->unit }} -
+                                        {{ $s->lokasi->sublokasi }}
                                     </option>
                                 @endif
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="kerusakan">Kerusakan</label>
-                        <textarea type="text" class="form-control" id="kerusakan" placeholder="Enter Kerusakan" name="kerusakan" required>{{ $item->kerusakan }}</textarea>
+                        <label for="kerusakan">Isu</label>
+                        <textarea type="text" required class="form-control" id="kerusakan" placeholder="Enter Isu" name="kerusakan" required>{{ $item->kerusakan }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="perbaikan">Perbaikan</label>
-                        <textarea type="text" class="form-control" id="perbaikan" placeholder="Enter Perbaikan" name="perbaikan" required>{{ $item->perbaikan }}</textarea>
+                        <label for="perbaikan">Troubleshoot</label>
+                        <textarea type="text" class="form-control" id="perbaikan" placeholder="Enter Troubleshoot" name="perbaikan" required>{{ $item->perbaikan }}</textarea>
                     </div>
 
                 </div>

@@ -31,9 +31,9 @@
                                         <th>Port</th>
                                         <th>Status</th>
                                         <th>Arah</th>
-                                        <th>Last Update</th>
                                         <th>User</th>
                                         <th>Keterangan</th>
+                                        <th>Last Update</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -53,9 +53,9 @@
                                             <td>{{ $item->port }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>{{ $item->arah }}</td>
-                                            <td>{{ $item->updated_at }}</td>
                                             <td>{{ $item->user->email }}</td>
                                             <td>{{ $item->keterangan }}</td>
+                                            <td>{{ $item->updated_at }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('link.destroy', $item->id) }}" method="POST"

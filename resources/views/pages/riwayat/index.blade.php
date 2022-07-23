@@ -27,9 +27,10 @@
                                         <th>No</th>
                                         <th>Jenis History</th>
                                         <th>Perangkat</th>
-                                        <th>Kerusakan</th>
-                                        <th>Perbaikan</th>
+                                        <th>Isu</th>
+                                        <th>Troubleshoot</th>
                                         <th>Tanggal</th>
+                                        <th>User</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -43,6 +44,7 @@
                                             <td>{{ $item->kerusakan }}</td>
                                             <td>{{ $item->perbaikan }}</td>
                                             <td>{{ $item->tanggal }}</td>
+                                            <td>{{ $item->user->email }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('riwayat.destroy', $item->id) }}" method="POST"

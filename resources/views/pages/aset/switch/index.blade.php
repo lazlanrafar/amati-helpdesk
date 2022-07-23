@@ -42,8 +42,7 @@
                                             <td>{{ $item->idswitch }}</td>
                                             <td>{{ $item->jenis_switch }}</td>
                                             <td>
-                                                {{ $item->brand->nama_brand }},
-                                                {{ $item->brand->tipe_brand }}
+                                                {{ $item->brand->nama_brand }} {{ $item->brand->tipe_brand }}
                                             </td>
                                             <td>{{ $item->jumlah_port }}</td>
                                             <td>{{ $item->jenis_port }}</td>

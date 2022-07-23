@@ -1,6 +1,6 @@
 @extends('layouts.auth') @section('content')
     <div class="login-box">
-
+        @include('includes.error-card')
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="login-logo">
